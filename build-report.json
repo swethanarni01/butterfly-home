@@ -1,0 +1,78 @@
+{
+  "pipeline": "/animated-website",
+  "generatedAt": "2026-04-28T00:00:00Z",
+  "briefSource": "brief.txt",
+  "thematicPivot": {
+    "from": "Boutique organic dairy storefront (paid product brand)",
+    "to": "The Butterfly House at Srinivas Farm — a small community farm and sanctuary for abandoned children and elders",
+    "noteFromUser": "Small operation, a few gallons of milk, surplus shared with the community and the residents of the Butterfly House. Vegetables and fruit grown on-site are donated."
+  },
+  "brand": {
+    "name": "The Butterfly House at Srinivas Farm",
+    "tagline": "Where Wings Rest and Roots Run Deep",
+    "voice": "Quiet, sincere, plain-spoken. No marketing. No prices."
+  },
+  "palette": {
+    "primary": "#2F5132 (Forest Green)",
+    "primarySoft": "#4A7C59 (Sage)",
+    "background": "#F5F0E1 (Warm Linen)",
+    "surfaceContainerLow": "#ECE3CB (Parchment)",
+    "onSurface": "#1A2418 (Dark Moss)",
+    "secondaryDim": "#6B7C58 (Muted Sage)",
+    "tertiaryFixed": "#C9A961 (Honey Amber)",
+    "accentWing": "#C2552D (Monarch Terracotta)"
+  },
+  "uniqueSignatures": [
+    "Drifting butterfly canvas (replaces pollen) — multi-colour wings flapping across the page",
+    "Two-wing Butterfly House section (Children's east wing + Elders' west wing)",
+    "Living \"This Morning on the Farm\" hero card (gallons / baskets / plates served)",
+    "Community Impact counter on a forest-green slab with monarch wing motif",
+    "Honest FAQ that includes \"Why call it the Butterfly House?\""
+  ],
+  "sections": [
+    "Hero (mission + this-morning card + donate/volunteer CTAs)",
+    "Heritage Timeline (1975 → today, including founder's story)",
+    "About / A Letter from the Founder",
+    "What We Share (Milk · Vegetables · Fruits)",
+    "The Garden & The Land",
+    "The Small Herd (cows · calves · garden helpers)",
+    "The Butterfly House (Children's wing + Elders' wing)",
+    "The Community Table (Milk · Vegetables · Fruits · Seasonal — tabbed)",
+    "Community Impact (animated counter + Donate/Volunteer/Visit cards)",
+    "Our Caretakers (8 portraits, founder first)",
+    "Gallery (masonry)",
+    "Voices From The House (carousel — child + elder + neighbour)",
+    "Honest Answers (FAQ)",
+    "Get Involved (contact form with shelter-relevant inquiry types)"
+  ],
+  "components": {
+    "carousel": "fired",
+    "card": "fired",
+    "tabs": "fired",
+    "accordion": "fired",
+    "select": "fired",
+    "toast": "fired",
+    "badge": "fired",
+    "separator": "fired",
+    "form-input": "fired",
+    "count-up": "fired",
+    "butterfly-canvas": "fired (custom)",
+    "dialog": "skipped",
+    "tooltip": "skipped"
+  },
+  "skills": {
+    "brand": "fired (re-voiced for sanctuary)",
+    "ui-ux-pro-max": "fired",
+    "design-system": "fired (forest-green tokens)",
+    "design": "fired",
+    "ui-styling": "fired",
+    "nano-banana-2": "skipped this pass — Unsplash placeholders"
+  },
+  "knownGaps": [
+    "Hero / OG / family portraits use Unsplash placeholders — swap with real photos of the founder, the children (with consent / silhouetted as appropriate), the elders, the cows, and the garden",
+    "Display typeface is Crimson Pro (serif) — retained from earlier brief; could swap to a softer humanist serif or hand-drawn display if desired",
+    "No bespoke logo SVG — currently using a small inline butterfly mark in the header",
+    "No Dialog modals (e.g., for caretaker bios)",
+    "No real donation processor — contact form routes everyone to the Get Involved inbox"
+  ]
+}

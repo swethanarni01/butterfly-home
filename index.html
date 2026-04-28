@@ -1,0 +1,1373 @@
+<!DOCTYPE html>
+<!-- build-provenance
+  pipeline: /animated-website (Manual Orchestration)
+  generated-at: 2026-04-21T19:20:00Z
+  brief-source: brief.txt
+  mcp:
+    stitch: fired
+    firecrawl: skipped
+    magic: skipped
+  skills:
+    brand: fired
+    ui-ux-pro-max: fired
+    design-system: fired
+    design: fired
+    ui-styling: fired
+    nano-banana-2: fired
+  images:
+    hero: tier-3
+    dairy-cow: tier-1
+    dairy-buffalo: tier-1
+    dairy-ghee: tier-1
+    family-srinivas: tier-1
+    family-ravi: tier-1
+    family-priya: tier-1
+    family-arjun: tier-1
+-->
+<html class="dark" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Srinivas Farm — The Butterfly House</title>
+    <meta name="description" content="A small farm and a sanctuary. We grow milk, vegetables, and quiet days for the children and elders our world has forgotten.">
+
+    <meta property="og:title" content="Srinivas Farm — The Butterfly House"/>
+    <meta property="og:description" content="A small farm and a sanctuary. We grow milk, vegetables, and quiet days for the children and elders our world has forgotten."/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://images.unsplash.com/photo-1502082553048-f009c37129b9?q=80&w=1200&h=630&fit=crop"/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:title" content="Srinivas Farm — The Butterfly House"/>
+    <meta name="twitter:description" content="A small farm and a sanctuary. We grow milk, vegetables, and quiet days for the children and elders our world has forgotten."/>
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1502082553048-f009c37129b9?q=80&w=1200&h=630&fit=crop"/>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "NGO",
+      "name": "Srinivas Farm — The Butterfly House",
+      "alternateName": "The Butterfly House",
+      "description": "A small community farm and home for abandoned children and elders. We share fresh milk, vegetables, and fruits with our residents and neighbors.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Butterfly Lane",
+        "addressLocality": "Our Village",
+        "addressRegion": "State",
+        "postalCode": "00000"
+      }
+    }
+    </script>
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=Manrope:wght@400;500;600&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2F5132", /* Forest Green */
+                        "primary-soft": "#4A7C59", /* Sage Living Leaf */
+                        "background": "#F5F0E1", /* Warm Linen */
+                        "surface": "#FFFFFF",
+                        "surface-container-low": "#ECE3CB", /* Parchment */
+                        "on-surface": "#1A2418", /* Dark Moss */
+                        "secondary-fixed-dim": "#6B7C58", /* Muted Sage */
+                        "tertiary-fixed": "#C9A961", /* Honey Amber (butterfly wing) */
+                        "accent-wing": "#C2552D" /* Monarch terracotta accent */
+                    },
+                    fontFamily: {
+                        "headline": ["Crimson Pro", "serif"],
+                        "body": ["Manrope", "sans-serif"]
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        :root {
+            --primary: #2F5132;
+            --primary-soft: #4A7C59;
+            --background: #F5F0E1;
+            --on-surface: #1A2418;
+            --surface-container-low: #ECE3CB;
+            --tertiary: #C9A961;
+            --wing: #C2552D;
+        }
+
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; color: var(--on-surface); }
+        body { 
+            background-color: var(--background); 
+            color: var(--on-surface);
+            font-feature-settings: "kern" 1, "liga" 1;
+        }
+        
+        /* Grain Texture Overlay */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: url('https://grainy-gradients.vercel.app/noise.svg');
+            opacity: 0.05;
+            pointer-events: none;
+            z-index: 50;
+        }
+
+        #starfield { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; opacity: 0.55; }
+        .section-reveal { opacity: 0; transform: translateY(30px); transition: all 1.2s cubic-bezier(0.22, 1, 0.36, 1); }
+        .section-reveal.active { opacity: 1; transform: translateY(0); }
+        .text-gradient-amber { background: linear-gradient(to right, #C9A961, #2F5132); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: transparent; } /* Honey to Forest */
+        .text-gradient-wing { background: linear-gradient(to right, #C9A961, #C2552D); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: transparent; } /* Honey to Monarch */
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 150ms !important; transition-property: opacity !important; }
+            #starfield { display: none; }
+            .section-reveal { transform: none !important; }
+        }
+        .signature-font { font-family: 'Brush Script MT', cursive; }
+        
+        .sr-only:not(:focus):not(:active) { clip: rect(0 0 0 0); clip-path: inset(50%); height: 1px; overflow: hidden; position: absolute; white-space: nowrap; width: 1px; }
+
+        /* Step 9: Hero character animation */
+        .char { display: inline-block; opacity: 0; transform: translateY(10px); transition: all 0.5s ease; }
+        .char-reveal { animation: charReveal 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards; }
+        @keyframes charReveal {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Farmhouse Ornaments */
+        .farm-line { height: 1px; background: linear-gradient(90deg, transparent, var(--primary), transparent); flex-grow: 1; }
+        .farm-leaf { width: 10px; height: 10px; border: 1px solid var(--primary); transform: rotate(45deg); flex-shrink: 0; }
+        .farm-dot { width: 6px; height: 6px; background: var(--primary); border-radius: 50%; }
+        
+        /* Unique Botanical Divider */
+        .botanical-divider { display: flex; align-items: center; justify-content: center; margin: 2rem 0; opacity: 0.6; }
+        .botanical-divider svg { width: 100px; height: 20px; fill: var(--primary); }
+
+        /* Butterfly House — Ken Burns picture animation */
+        .bh-frame { overflow: hidden; position: relative; }
+        .bh-frame::after {
+            content: "";
+            position: absolute; inset: 0;
+            background: linear-gradient(180deg, transparent 60%, rgba(26, 36, 24, 0.45));
+            pointer-events: none;
+        }
+        .bh-frame .bh-caption {
+            position: absolute; left: 1.25rem; bottom: 1rem;
+            font-family: 'Crimson Pro', serif; font-style: italic;
+            color: #F5F0E1; font-size: 0.875rem; letter-spacing: 0.02em;
+            text-shadow: 0 1px 4px rgba(0,0,0,0.4);
+            opacity: 0; transform: translateY(6px);
+            transition: opacity 600ms ease, transform 600ms ease;
+        }
+        .bh-frame.in-view .bh-caption { opacity: 0.95; transform: translateY(0); }
+        .bh-img {
+            width: 100%; height: 100%; object-fit: cover;
+            will-change: transform;
+            transform-origin: center;
+            filter: sepia(0.18) saturate(1.05) brightness(1.02) contrast(0.98);
+        }
+        @keyframes kenBurnsLeft {
+            0%   { transform: scale(1.02) translate(0%, 0%); }
+            50%  { transform: scale(1.10) translate(-2.5%, -1.5%); }
+            100% { transform: scale(1.02) translate(0%, 0%); }
+        }
+        @keyframes kenBurnsRight {
+            0%   { transform: scale(1.10) translate(1.5%, 1%); }
+            50%  { transform: scale(1.02) translate(0%, 0%); }
+            100% { transform: scale(1.10) translate(1.5%, 1%); }
+        }
+        .bh-img-children { animation: kenBurnsLeft 16s ease-in-out infinite; transform-origin: 30% 40%; }
+        .bh-img-elders   { animation: kenBurnsRight 18s ease-in-out infinite; transform-origin: 70% 60%; }
+
+        @media (prefers-reduced-motion: reduce) {
+            .bh-img-children, .bh-img-elders { animation: none !important; transform: none !important; }
+            .bh-frame .bh-caption { transition: none; }
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body selection:bg-primary/30 selection:text-primary overflow-x-hidden">
+    <!-- Skip to Content -->
+    <a href="#about" class="sr-only focus:not-sr-only fixed top-4 left-4 z-[100] bg-primary text-background px-4 py-2 rounded-full font-headline text-xs tracking-widest uppercase">Skip to Our Story</a>
+
+    <canvas id="starfield" aria-hidden="true"></canvas><!-- Drifting butterflies -->
+
+    <!-- Navigation -->
+    <header class="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-2xl border-b border-on-surface/5">
+        <div class="flex justify-between items-center px-8 py-5 max-w-7xl mx-auto gap-6">
+            <a href="#" class="flex items-center gap-3 text-primary group">
+                <svg viewBox="0 0 32 32" class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                    <path d="M16 6 C 11 6, 6 9, 6 14 C 6 18, 10 20, 14 18 C 14 22, 12 24, 14 26 C 15 27, 16 26, 16 24 C 16 26, 17 27, 18 26 C 20 24, 18 22, 18 18 C 22 20, 26 18, 26 14 C 26 9, 21 6, 16 6 Z"/>
+                    <path d="M16 10 L 16 24" stroke-width="1"/>
+                </svg>
+                <div class="leading-tight">
+                    <div class="font-headline text-base font-bold tracking-[0.2em] uppercase">Butterfly House</div>
+                    <div class="font-body text-[9px] tracking-[0.3em] uppercase text-secondary-fixed-dim">at Srinivas Farm</div>
+                </div>
+            </a>
+            <nav class="hidden md:flex gap-7 font-headline text-xs uppercase tracking-widest">
+                <a href="#about" class="text-on-surface/60 hover:text-primary transition-colors">Our Story</a>
+                <a href="#butterfly-house" class="text-on-surface/60 hover:text-primary transition-colors">The House</a>
+                <a href="#share" class="text-on-surface/60 hover:text-primary transition-colors">What We Share</a>
+                <a href="#impact" class="text-on-surface/60 hover:text-primary transition-colors">Impact</a>
+                <a href="#gallery" class="text-on-surface/60 hover:text-primary transition-colors">Gallery</a>
+                <a href="#contact" class="text-on-surface/60 hover:text-primary transition-colors">Get Involved</a>
+            </nav>
+            <a href="#contact" class="hidden md:inline-flex bg-primary px-6 py-2 rounded-full text-background text-xs font-headline tracking-widest uppercase hover:bg-primary-soft transition-all">Donate</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex flex-col items-center justify-center text-center px-6 pt-24 pb-20 z-10">
+        <div class="mb-8 flex justify-center items-center space-x-4 opacity-70 max-w-md w-full">
+            <div class="farm-line"></div><div class="farm-leaf"></div><div class="farm-line"></div>
+        </div>
+        <p class="font-headline text-[11px] tracking-[0.4em] uppercase text-primary-soft mb-6">Est. 1975 · A Family Farm</p>
+        <h1 id="hero-headline" class="font-headline text-6xl md:text-9xl font-bold text-on-surface tracking-tight leading-[1.0] mb-6">SRINIVAS FARM</h1>
+        <p class="font-headline italic text-2xl md:text-3xl text-primary mb-8">We grow what we eat. We share what we don't.</p>
+        <p class="font-body text-base md:text-lg text-secondary-fixed-dim max-w-2xl mb-12 opacity-0 animate-[charReveal_1s_ease_1s_forwards] leading-relaxed">A few cows, a kitchen garden behind the house, a fruit grove. We milk by hand at sunrise. The children at home drink first. Whatever the kitchen does not need, we walk down to the village.</p>
+
+        <!-- This Morning Card -->
+        <div class="bg-surface-container-low/60 backdrop-blur-xl p-8 rounded-3xl border border-primary/10 shadow-sm mb-12 relative max-w-2xl w-full">
+            <h3 class="font-headline text-xs text-primary tracking-[0.3em] uppercase mb-6">THIS MORNING ON THE FARM</h3>
+            <div class="flex items-center justify-around gap-6">
+                <div class="flex flex-col items-center">
+                    <span id="hero-gallons" class="font-headline text-4xl md:text-5xl text-primary font-bold tabular-nums">06</span>
+                    <span class="text-[10px] uppercase tracking-widest mt-2 text-secondary-fixed-dim">Gallons Milked</span>
+                </div>
+                <div class="w-px h-12 bg-primary/15"></div>
+                <div class="flex flex-col items-center">
+                    <span id="hero-baskets" class="font-headline text-4xl md:text-5xl text-primary font-bold tabular-nums">14</span>
+                    <span class="text-[10px] uppercase tracking-widest mt-2 text-secondary-fixed-dim">Baskets Picked</span>
+                </div>
+                <div class="w-px h-12 bg-primary/15"></div>
+                <div class="flex flex-col items-center">
+                    <span id="hero-mouths" class="font-headline text-4xl md:text-5xl text-primary font-bold tabular-nums">42</span>
+                    <span class="text-[10px] uppercase tracking-widest mt-2 text-secondary-fixed-dim">Plates Served</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Butterfly House Teaser -->
+        <a id="butterfly-teaser" href="#butterfly-house" class="group relative max-w-2xl w-full bg-primary text-background rounded-3xl p-10 md:p-12 mb-10 overflow-hidden hover:bg-primary-soft transition-colors duration-500 block text-left">
+            <span class="absolute top-6 right-8 font-headline text-[10px] tracking-[0.4em] uppercase text-tertiary-fixed">A Quiet Promise</span>
+            <span class="material-symbols-outlined text-tertiary-fixed text-4xl mb-4 block" style="font-variation-settings:'FILL' 1;">flutter_dash</span>
+            <p class="font-headline italic text-lg md:text-xl text-background/85 leading-relaxed mb-3 max-w-xl">There is one more thing on this farm. A small house behind the kitchen — for children no one came back for, and elders no one took home.</p>
+            <p class="font-headline text-3xl md:text-4xl font-bold tracking-wide text-tertiary-fixed mt-6">The Butterfly House</p>
+            <p class="font-headline text-[11px] tracking-[0.35em] uppercase text-background/60 mt-3 flex items-center gap-2">
+                <span>Click to step inside</span>
+                <span class="material-symbols-outlined text-base group-hover:translate-x-1 transition-transform">arrow_forward</span>
+            </p>
+        </a>
+
+        <div class="flex flex-col sm:flex-row gap-3 items-center opacity-0 animate-[charReveal_1s_ease_1.2s_forwards]">
+            <a href="#contact" class="border border-primary text-primary px-8 py-3 rounded-full font-headline font-bold tracking-widest uppercase text-xs hover:bg-primary/10 transition-all">Volunteer</a>
+            <a href="#contact" class="border border-primary text-primary px-8 py-3 rounded-full font-headline font-bold tracking-widest uppercase text-xs hover:bg-primary/10 transition-all">Donate</a>
+            <a href="#about" class="text-primary px-4 py-3 font-headline font-bold tracking-widest uppercase text-xs hover:opacity-70 transition-opacity">Read Our Story →</a>
+        </div>
+    </section>
+
+    <!-- Heritage Timeline -->
+    <section id="heritage" class="section-reveal py-32 px-6 z-10 relative overflow-hidden">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-20">
+                <h2 class="font-headline text-4xl font-bold text-primary uppercase tracking-widest mb-4">HOW IT GREW</h2>
+                <p class="text-secondary-fixed-dim text-sm">A small story, one season at a time.</p>
+                <div class="w-16 h-[1px] bg-primary/30 mx-auto mt-6"></div>
+            </div>
+
+            <div class="relative">
+                <div class="absolute left-1/2 top-0 bottom-0 w-[1px] bg-primary/20 -translate-x-1/2"></div>
+
+                <div class="space-y-24">
+                    <div class="relative flex items-center justify-between">
+                        <div class="w-[45%] text-right pr-8">
+                            <span class="font-headline text-3xl font-bold text-primary italic">1975</span>
+                            <h4 class="font-headline font-bold uppercase tracking-wider mt-2">My Father's Field</h4>
+                            <p class="text-sm text-secondary-fixed-dim mt-2">Srinivas, my father, plants his first crop. Two cows in the shed. A well, a wooden gate, and the patience of someone who loved the soil.</p>
+                        </div>
+                        <div class="absolute left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-primary border-4 border-background outline outline-1 outline-primary/20"></div>
+                        <div class="w-[45%]"></div>
+                    </div>
+                    <div class="relative flex items-center justify-between">
+                        <div class="w-[45%]"></div>
+                        <div class="absolute left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-primary border-4 border-background outline outline-1 outline-primary/20"></div>
+                        <div class="w-[45%] pl-8">
+                            <span class="font-headline text-3xl font-bold text-primary italic">2014</span>
+                            <h4 class="font-headline font-bold uppercase tracking-wider mt-2">A Boy at the Gate</h4>
+                            <p class="text-sm text-secondary-fixed-dim mt-2">A child arrived one evening with nothing. We made a bed. We made another the next week. By winter, the spare room was full and a new room had to be built.</p>
+                        </div>
+                    </div>
+                    <div class="relative flex items-center justify-between">
+                        <div class="w-[45%] text-right pr-8">
+                            <span class="font-headline text-3xl font-bold text-primary italic">2019</span>
+                            <h4 class="font-headline font-bold uppercase tracking-wider mt-2">An Elder at the Door</h4>
+                            <p class="text-sm text-secondary-fixed-dim mt-2">An old man, left at a bus stand by people who could not care for him anymore. He stayed two years. Others followed. We named the place The Butterfly House.</p>
+                        </div>
+                        <div class="absolute left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-primary border-4 border-background outline outline-1 outline-primary/20"></div>
+                        <div class="w-[45%]"></div>
+                    </div>
+                    <div class="relative flex items-center justify-between">
+                        <div class="w-[45%]"></div>
+                        <div class="absolute left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-tertiary-fixed border-4 border-background outline outline-1 outline-tertiary-fixed/20"></div>
+                        <div class="w-[45%] pl-8">
+                            <span class="font-headline text-3xl font-bold text-primary italic">Today</span>
+                            <h4 class="font-headline font-bold uppercase tracking-wider mt-2">A Whole, Quiet Place</h4>
+                            <p class="text-sm text-secondary-fixed-dim mt-2">Twelve children. Nine elders. A few cows, a kitchen garden, a fruit grove. Whatever we don't eat, we give to the village. Whatever the village can spare, they give back.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About / Founder's Letter -->
+    <section id="about" class="section-reveal py-32 px-6 z-10 relative">
+        <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-5 gap-12 items-stretch">
+            <div class="lg:col-span-3 bg-surface-container-low p-10 md:p-14 rounded-3xl border border-primary/5 shadow-inner relative">
+                <span class="absolute -top-3 left-10 bg-primary text-background text-[10px] tracking-[0.3em] uppercase px-4 py-1 rounded-full font-bold">A Letter from the Founder</span>
+                <h2 class="font-headline text-3xl md:text-4xl font-bold text-primary tracking-wide mb-8 mt-2">Why we built this place</h2>
+                <div class="text-secondary-fixed-dim text-lg leading-relaxed space-y-5 font-body">
+                    <p>This is not a big dairy. We have a few cows. Some mornings we get six gallons. Some mornings four. We drink what our home needs and the rest goes to the children and elders who live here.</p>
+                    <p>I built The Butterfly House on the land my father Srinivas farms with me. Not alone — with him, with neighbors, with friends, with families who heard a child needed a place to sleep and brought a mattress, who heard an old woman had nowhere and brought a chair.</p>
+                    <p>We grow vegetables and fruits in the garden behind the house. Whatever the kitchen does not use, the village comes for. Whatever the village can spare, it sends back. That is how a small farm feeds more than its own table.</p>
+                </div>
+                <div class="mt-12 pt-8 border-t border-on-surface/5 flex items-end justify-between gap-6">
+                    <div>
+                        <span class="signature-font text-4xl text-primary">— with care</span>
+                        <p class="font-headline text-xs tracking-[0.3em] uppercase mt-2 text-on-surface">The Founder</p>
+                        <p class="font-body text-xs text-secondary-fixed-dim mt-1">Built alongside my father, Srinivas — who still walks the fields every morning</p>
+                    </div>
+                    <span class="material-symbols-outlined text-tertiary-fixed text-5xl opacity-40" style="font-variation-settings:'FILL' 1;">eco</span>
+                </div>
+            </div>
+            <div class="lg:col-span-2 bg-surface-container-low/40 backdrop-blur-3xl p-10 md:p-12 rounded-3xl border border-primary/20 relative overflow-hidden flex flex-col justify-center">
+                <span class="font-headline text-[10px] tracking-[0.3em] uppercase text-primary/70 mb-8">By the Numbers</span>
+                <div id="stats-grid" class="grid grid-cols-2 gap-y-10 gap-x-6">
+                    <div><span class="block text-4xl font-headline font-bold text-gradient-amber">1975</span><span class="text-[10px] uppercase tracking-widest text-secondary-fixed-dim">Father's First Acre</span></div>
+                    <div><span class="stat-num block text-4xl font-headline font-bold text-gradient-amber" data-target="12">12</span><span class="text-[10px] uppercase tracking-widest text-secondary-fixed-dim">Children at Home</span></div>
+                    <div><span class="stat-num block text-4xl font-headline font-bold text-gradient-amber" data-target="9">9</span><span class="text-[10px] uppercase tracking-widest text-secondary-fixed-dim">Elders at Home</span></div>
+                    <div><span class="stat-num block text-4xl font-headline font-bold text-gradient-amber" data-target="7">7</span><span class="text-[10px] uppercase tracking-widest text-secondary-fixed-dim">Cows in the Shed</span></div>
+                    <div><span class="stat-num block text-4xl font-headline font-bold text-gradient-wing" data-target="32">32</span><span class="text-[10px] uppercase tracking-widest text-secondary-fixed-dim">Vegetable Beds</span></div>
+                    <div><span class="stat-num block text-4xl font-headline font-bold text-gradient-wing" data-target="18">18</span><span class="text-[10px] uppercase tracking-widest text-secondary-fixed-dim">Fruit Trees</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What We Share -->
+    <section id="share" class="section-reveal py-32 px-6 z-10 relative bg-surface-container-low/40">
+        <div class="max-w-6xl mx-auto text-center mb-20">
+            <p class="font-headline text-[11px] tracking-[0.4em] uppercase text-primary mb-4">From Our Hands · To Your Table</p>
+            <h2 class="font-headline text-4xl font-bold text-on-surface tracking-wide mb-4">What We Share</h2>
+            <p class="text-secondary-fixed-dim max-w-xl mx-auto">Nothing here is for sale. What our home does not need, our neighbors take. What our neighbors can spare, they bring back. The kitchen never empties.</p>
+        </div>
+        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+            <article class="bg-background p-10 rounded-3xl border border-on-surface/5 hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5 transition-all duration-500 flex flex-col group relative">
+                <div class="aspect-video mb-8 overflow-hidden rounded-2xl relative bg-surface-container-low">
+                    <img src="https://images.unsplash.com/photo-1563636619-e9143da7973b?q=80&w=800&auto=format&fit=crop" alt="A glass of fresh cow milk on a wooden surface" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async">
+                </div>
+                <span class="material-symbols-outlined text-primary text-3xl mb-3">water_drop</span>
+                <h3 class="font-headline text-xl font-bold mb-3 uppercase tracking-widest">Fresh Milk</h3>
+                <p class="text-sm text-secondary-fixed-dim leading-relaxed mb-6">Four to six gallons most mornings, from seven gentle cows. Children at the house drink first. Whatever is left goes to elders in the village who can no longer keep an animal of their own.</p>
+                <ul class="space-y-3 text-sm text-secondary-fixed-dim mt-auto">
+                    <li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary-soft text-sm">check_circle</span> Hand-milked at sunrise</li>
+                    <li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary-soft text-sm">check_circle</span> Free of every chemical</li>
+                    <li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary-soft text-sm">check_circle</span> Shared, never sold</li>
+                </ul>
+            </article>
+            <article class="bg-surface-container-low p-10 rounded-3xl border-2 border-primary/40 shadow-2xl flex flex-col relative group transition-all duration-500">
+                <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary text-background px-4 py-1 rounded-full text-[10px] font-bold tracking-[0.3em] uppercase">The Heart of the Garden</span>
+                <div class="aspect-video mb-8 overflow-hidden rounded-2xl relative bg-background/50">
+                    <img src="https://images.unsplash.com/photo-1518843875459-f738682238a6?q=80&w=800&auto=format&fit=crop" alt="Wooden basket of fresh garden vegetables" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async">
+                </div>
+                <span class="material-symbols-outlined text-primary text-3xl mb-3">restaurant</span>
+                <h3 class="font-headline text-xl font-bold mb-3 uppercase tracking-widest">Vegetables</h3>
+                <p class="text-sm text-on-surface/80 leading-relaxed mb-6">Spinach, beans, gourd, tomato, drumstick, brinjal — whatever the season carries in. Picked by hand each morning. The kitchen takes what it needs; the rest is loaded onto a cart and walked through the village.</p>
+                <ul class="space-y-3 text-sm text-on-surface/80 mt-auto">
+                    <li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-sm">check_circle</span> Thirty-two beds, rotated by season</li>
+                    <li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-sm">check_circle</span> Compost from our own herd</li>
+                    <li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-sm">check_circle</span> No chemicals, no shortcuts</li>
+                </ul>
+            </article>
+            <article class="bg-background p-10 rounded-3xl border border-on-surface/5 hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5 transition-all duration-500 flex flex-col group relative">
+                <div class="aspect-video mb-8 overflow-hidden rounded-2xl relative bg-surface-container-low">
+                    <img src="https://images.unsplash.com/photo-1577234286642-fc512a5f8f11?q=80&w=800&auto=format&fit=crop" alt="Fresh sliced citrus and orchard fruits, including sweet limes and oranges" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async">
+                </div>
+                <span class="material-symbols-outlined text-primary text-3xl mb-3">nutrition</span>
+                <h3 class="font-headline text-xl font-bold mb-3 uppercase tracking-widest">Fruits</h3>
+                <p class="text-sm text-secondary-fixed-dim leading-relaxed mb-6">Mangoes in summer, guava and chickoo in autumn, papaya year round. Eighteen trees that my father planted. The children eat what they can pick. Our elders eat what they cannot reach.</p>
+                <ul class="space-y-3 text-sm text-secondary-fixed-dim mt-auto">
+                    <li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary-soft text-sm">check_circle</span> Eighteen mature trees</li>
+                    <li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary-soft text-sm">check_circle</span> Picked, never sprayed</li>
+                    <li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary-soft text-sm">check_circle</span> Saved as preserves in winter</li>
+                </ul>
+            </article>
+        </div>
+    </section>
+
+    <!-- The Garden -->
+    <section id="land" class="section-reveal py-32 px-6 z-10 relative">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-20">
+                <p class="font-headline text-[11px] tracking-[0.4em] uppercase text-primary mb-4">Hand-Tended · Slow-Grown</p>
+                <h2 class="font-headline text-4xl font-bold text-on-surface tracking-wide mb-4">The Garden &amp; The Land</h2>
+                <p class="text-secondary-fixed-dim max-w-xl mx-auto">A few acres, worked the old way. Compost from the shed, water from the rain, and patience that the soil teaches you.</p>
+                <div class="botanical-divider"><span class="material-symbols-outlined">eco</span></div>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+                <div class="lg:row-span-2 rounded-3xl overflow-hidden bg-surface-container-low border border-primary/10 min-h-[320px]">
+                    <img src="https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?q=80&w=1200&auto=format&fit=crop" alt="Hand-tended kitchen garden in late afternoon light" class="w-full h-full object-cover" loading="lazy" decoding="async">
+                </div>
+                <div class="bg-surface-container-low p-10 rounded-3xl border border-primary/5">
+                    <span class="material-symbols-outlined text-primary text-3xl">agriculture</span>
+                    <h3 class="font-headline text-xl font-bold uppercase tracking-wider mt-4 mb-3">A Kitchen Garden</h3>
+                    <p class="text-secondary-fixed-dim text-sm leading-relaxed">Thirty-two raised beds behind the house. Children pull weeds after school. Elders sit nearby and tell them which sprout is which.</p>
+                </div>
+                <div class="bg-surface-container-low p-10 rounded-3xl border border-primary/5">
+                    <span class="material-symbols-outlined text-primary text-3xl">grass</span>
+                    <h3 class="font-headline text-xl font-bold uppercase tracking-wider mt-4 mb-3">Soil From the Shed</h3>
+                    <p class="text-secondary-fixed-dim text-sm leading-relaxed">Our cows feed the compost pile. The compost feeds the garden. The garden feeds the cows back. A small circle that asks for very little.</p>
+                </div>
+                <div class="bg-surface-container-low p-10 rounded-3xl border border-primary/5">
+                    <span class="material-symbols-outlined text-primary text-3xl">water_drop</span>
+                    <h3 class="font-headline text-xl font-bold uppercase tracking-wider mt-4 mb-3">Rain First, Well Second</h3>
+                    <p class="text-secondary-fixed-dim text-sm leading-relaxed">Two rooftop catchment tanks, a pond at the back of the orchard. The well is for emergencies and a bucket that never runs dry.</p>
+                </div>
+                <div class="bg-surface-container-low p-10 rounded-3xl border border-primary/5">
+                    <span class="material-symbols-outlined text-primary text-3xl">park</span>
+                    <h3 class="font-headline text-xl font-bold uppercase tracking-wider mt-4 mb-3">No Sprays, No Powders</h3>
+                    <p class="text-secondary-fixed-dim text-sm leading-relaxed">Nothing that kills a butterfly. Nothing that worries a child. The cost is more weeding by hand. We have time, and so does everyone here.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Small Herd -->
+    <section id="herd" class="section-reveal py-32 px-6 z-10 relative bg-surface-container-low/30">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-20">
+                <p class="font-headline text-[11px] tracking-[0.4em] uppercase text-primary mb-4">Seven Cows · Each One Named</p>
+                <h2 class="font-headline text-4xl font-bold text-on-surface tracking-wide mb-4">The Small Herd</h2>
+                <p class="text-secondary-fixed-dim max-w-xl mx-auto">Not a dairy operation. A few animals, kept the way my grandfather kept his — slow mornings, full days, names called from the kitchen door.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-background p-8 rounded-3xl border border-on-surface/5 group">
+                    <div class="aspect-[4/3] rounded-2xl overflow-hidden mb-6">
+                        <img src="https://images.unsplash.com/photo-1546445317-29f4545e9d53?q=80&w=800&auto=format&fit=crop" alt="Gir cow grazing" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" decoding="async">
+                    </div>
+                    <h3 class="font-headline text-xl font-bold uppercase tracking-widest mb-2">The Cows</h3>
+                    <p class="text-secondary-fixed-dim text-sm leading-relaxed mb-6">Five Gir and two Sahiwal. Each one named, each one known by which child runs to greet her after school.</p>
+                    <ul class="space-y-3 text-sm border-t border-on-surface/5 pt-6">
+                        <li class="flex justify-between"><span>Tulsi</span><span class="text-secondary-fixed-dim text-xs uppercase tracking-widest">Gir · 7yr</span></li>
+                        <li class="flex justify-between"><span>Meera</span><span class="text-secondary-fixed-dim text-xs uppercase tracking-widest">Gir · 9yr</span></li>
+                        <li class="flex justify-between"><span>Rohini</span><span class="text-secondary-fixed-dim text-xs uppercase tracking-widest">Sahiwal · 4yr</span></li>
+                    </ul>
+                    <div class="flex gap-3 mt-6 text-secondary-fixed-dim">
+                        <span class="material-symbols-outlined text-base" title="Grass-fed">grass</span>
+                        <span class="material-symbols-outlined text-base" title="Free-range">park</span>
+                        <span class="material-symbols-outlined text-base" title="Hand-milked">pan_tool</span>
+                    </div>
+                </div>
+                <div class="bg-background p-8 rounded-3xl border border-on-surface/5 group">
+                    <div class="aspect-[4/3] rounded-2xl overflow-hidden mb-6">
+                        <img src="https://images.unsplash.com/photo-1596733430284-f7437764b1a9?q=80&w=800&auto=format&fit=crop" alt="Calf in barn" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" decoding="async">
+                    </div>
+                    <h3 class="font-headline text-xl font-bold uppercase tracking-widest mb-2">The Calves</h3>
+                    <p class="text-secondary-fixed-dim text-sm leading-relaxed mb-6">Two newborns this spring. Kept beside their mothers, never separated. Named on the day they first stand.</p>
+                    <ul class="space-y-3 text-sm border-t border-on-surface/5 pt-6">
+                        <li class="flex justify-between"><span>Chotu</span><span class="text-secondary-fixed-dim text-xs uppercase tracking-widest">Gir · 4mo</span></li>
+                        <li class="flex justify-between"><span>Bablu</span><span class="text-secondary-fixed-dim text-xs uppercase tracking-widest">Sahiwal · 2mo</span></li>
+                    </ul>
+                    <div class="flex gap-3 mt-6 text-secondary-fixed-dim">
+                        <span class="material-symbols-outlined text-base" title="Mother-raised">family_restroom</span>
+                        <span class="material-symbols-outlined text-base" title="Pasture-born">park</span>
+                    </div>
+                </div>
+                <div class="bg-background p-8 rounded-3xl border border-on-surface/5 group">
+                    <div class="aspect-[4/3] rounded-2xl overflow-hidden mb-6">
+                        <img src="https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?q=80&w=800&auto=format&fit=crop" alt="Hens roaming a vegetable plot" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" decoding="async">
+                    </div>
+                    <h3 class="font-headline text-xl font-bold uppercase tracking-widest mb-2">The Garden's Helpers</h3>
+                    <p class="text-secondary-fixed-dim text-sm leading-relaxed mb-6">Eight hens, two dogs, and a cat who runs the kitchen. The hens do the weeding we are too tired for.</p>
+                    <ul class="space-y-3 text-sm border-t border-on-surface/5 pt-6">
+                        <li class="flex justify-between"><span>Hens</span><span class="text-secondary-fixed-dim text-xs uppercase tracking-widest">8 · Free range</span></li>
+                        <li class="flex justify-between"><span>Bhola &amp; Roti</span><span class="text-secondary-fixed-dim text-xs uppercase tracking-widest">Farm dogs</span></li>
+                        <li class="flex justify-between"><span>Pillu</span><span class="text-secondary-fixed-dim text-xs uppercase tracking-widest">House cat · 6yr</span></li>
+                    </ul>
+                    <div class="flex gap-3 mt-6 text-secondary-fixed-dim">
+                        <span class="material-symbols-outlined text-base" title="Loved by all">favorite</span>
+                        <span class="material-symbols-outlined text-base" title="Free-range">park</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Butterfly House -->
+    <section id="butterfly-house" class="section-reveal py-32 px-6 z-10 relative">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-20">
+                <p class="font-headline text-[11px] tracking-[0.4em] uppercase text-primary mb-4">A Quiet Home · For Two Kinds of Wings</p>
+                <h2 class="font-headline text-4xl md:text-5xl font-bold text-on-surface tracking-wide mb-6">The Butterfly House</h2>
+                <p class="font-headline text-xl md:text-2xl text-on-surface max-w-2xl mx-auto leading-snug mb-4">A small home for abandoned children and forgotten elders.<br/><span class="text-primary italic">Twelve children. Nine elders. One family.</span></p>
+                <p class="text-secondary-fixed-dim max-w-2xl mx-auto leading-relaxed mt-6">Some butterflies are just learning to fly. Others have flown a long, long way. Both deserve a window, a meal, and someone who will listen. We try to be that house.</p>
+                <div class="botanical-divider"><span class="material-symbols-outlined">flutter_dash</span></div>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Children's Wing -->
+                <article class="bg-surface-container-low p-10 md:p-12 rounded-3xl border border-primary/10 relative overflow-hidden group">
+                    <div class="absolute top-6 right-6 w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+                        <span class="material-symbols-outlined text-primary">child_care</span>
+                    </div>
+                    <p class="font-headline text-[10px] tracking-[0.3em] uppercase text-primary-soft mb-3">East Wing</p>
+                    <h3 class="font-headline text-3xl font-bold tracking-wide mb-6">For The Children</h3>
+                    <div class="bh-frame aspect-[16/9] rounded-2xl mb-6 border border-primary/10">
+                        <img src="https://images.unsplash.com/photo-1497486751825-1233686d5d80?q=80&w=900&auto=format&fit=crop" alt="Children playing in a garden under warm afternoon light" class="bh-img bh-img-children" loading="lazy" decoding="async">
+                        <span class="bh-caption">Afternoons in the back garden</span>
+                    </div>
+                    <p class="text-secondary-fixed-dim leading-relaxed mb-6">Twelve children live with us. Some came as babies left at the gate. Some were brought by neighbors who knew us. They go to school in the morning, run in the garden in the afternoon, and read aloud to the elders before bed.</p>
+                    <ul class="space-y-3 text-sm">
+                        <li class="flex items-start gap-3"><span class="material-symbols-outlined text-primary text-base mt-0.5">school</span><span>Schooling, books, uniforms, and the patience to do homework with them</span></li>
+                        <li class="flex items-start gap-3"><span class="material-symbols-outlined text-primary text-base mt-0.5">restaurant</span><span>Three meals a day from the garden and the kitchen</span></li>
+                        <li class="flex items-start gap-3"><span class="material-symbols-outlined text-primary text-base mt-0.5">favorite</span><span>A bed that is theirs. A name that is called every morning.</span></li>
+                    </ul>
+                </article>
+                <!-- Elders' Wing -->
+                <article class="bg-surface-container-low p-10 md:p-12 rounded-3xl border border-primary/10 relative overflow-hidden group">
+                    <div class="absolute top-6 right-6 w-12 h-12 rounded-full bg-tertiary-fixed/15 flex items-center justify-center">
+                        <span class="material-symbols-outlined text-accent-wing">elderly</span>
+                    </div>
+                    <p class="font-headline text-[10px] tracking-[0.3em] uppercase text-accent-wing mb-3">West Wing</p>
+                    <h3 class="font-headline text-3xl font-bold tracking-wide mb-6">For The Elders</h3>
+                    <div class="bh-frame aspect-[16/9] rounded-2xl mb-6 border border-primary/10">
+                        <img src="images/butterfly-house-elders.jpg" alt="The Butterfly House family — children, elders, caretakers, all together at home" class="bh-img bh-img-elders" loading="lazy" decoding="async">
+                        <span class="bh-caption">All of us, on a Saturday afternoon</span>
+                    </div>
+                    <p class="text-secondary-fixed-dim leading-relaxed mb-6">Nine elders share the west wing. Most were left alone by families who had grown too tired or too far. They tell stories on the verandah, teach the children to fold paper, and watch the garden grow from rocking chairs in the shade.</p>
+                    <ul class="space-y-3 text-sm">
+                        <li class="flex items-start gap-3"><span class="material-symbols-outlined text-accent-wing text-base mt-0.5">medical_services</span><span>Daily care, medicines, and a doctor who visits every Wednesday</span></li>
+                        <li class="flex items-start gap-3"><span class="material-symbols-outlined text-accent-wing text-base mt-0.5">chair</span><span>A room that is theirs, with a window that looks at the trees</span></li>
+                        <li class="flex items-start gap-3"><span class="material-symbols-outlined text-accent-wing text-base mt-0.5">groups</span><span>Company. The thing the world forgot to give them.</span></li>
+                    </ul>
+                </article>
+            </div>
+            <div class="mt-12 bg-primary/5 border border-primary/15 rounded-3xl p-10 text-center">
+                <p class="font-headline text-2xl md:text-3xl text-on-surface italic max-w-3xl mx-auto leading-snug">"We did not start a charity. We made room. The room kept getting bigger."</p>
+                <p class="font-headline text-[10px] tracking-[0.4em] uppercase text-primary mt-4">— A note pinned in the kitchen</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Table -->
+    <section id="community-table" class="section-reveal py-32 px-6 z-10 relative">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
+                <div>
+                    <p class="font-headline text-[11px] tracking-[0.4em] uppercase text-primary mb-4">Today's Harvest</p>
+                    <h2 class="font-headline text-4xl font-bold text-on-surface tracking-wide">The Community Table</h2>
+                    <p class="text-secondary-fixed-dim mt-2 text-sm max-w-md">What was picked or milked this morning. Take what you need. Leave what you can.</p>
+                </div>
+                <div class="flex flex-wrap gap-1" role="tablist" aria-label="What is on the table today">
+                    <button class="farm-tab px-6 py-2 border-b-2 border-primary text-primary text-xs uppercase tracking-widest font-bold" role="tab" aria-selected="true" data-tab="milk">Milk</button>
+                    <button class="farm-tab px-6 py-2 border-b-2 border-transparent text-secondary-fixed-dim text-xs uppercase tracking-widest hover:text-on-surface/80" role="tab" aria-selected="false" data-tab="vegetables">Vegetables</button>
+                    <button class="farm-tab px-6 py-2 border-b-2 border-transparent text-secondary-fixed-dim text-xs uppercase tracking-widest hover:text-on-surface/80" role="tab" aria-selected="false" data-tab="fruits">Fruits</button>
+                    <button class="farm-tab px-6 py-2 border-b-2 border-transparent text-secondary-fixed-dim text-xs uppercase tracking-widest hover:text-on-surface/80" role="tab" aria-selected="false" data-tab="seasonal">Seasonal</button>
+                </div>
+            </div>
+            <div id="farm-panels" class="relative">
+                <div class="farm-panel grid grid-cols-1 md:grid-cols-3 gap-8 transition-opacity duration-300" data-panel="milk">
+                    <div class="bg-surface-container-low p-8 rounded-2xl border border-on-surface/5 group hover:border-primary/20 transition-all relative">
+                        <span class="absolute -top-3 left-6 bg-primary text-background text-[10px] tracking-widest uppercase px-3 py-1 rounded-full font-bold">Today</span>
+                        <div class="flex justify-between items-start mb-4 gap-3">
+                            <h4 class="font-headline text-lg font-bold uppercase tracking-wider group-hover:text-primary transition-colors">Morning Milk</h4>
+                            <span class="text-primary font-bold text-sm">6 gal</span>
+                        </div>
+                        <p class="text-sm text-secondary-fixed-dim leading-relaxed">Hand-milked at sunrise from Tulsi, Meera, and the others. Children drink first. The rest goes to the village.</p>
+                    </div>
+                    <div class="bg-surface-container-low p-8 rounded-2xl border border-on-surface/5 group hover:border-primary/20 transition-all">
+                        <div class="flex justify-between items-start mb-4 gap-3">
+                            <h4 class="font-headline text-lg font-bold uppercase tracking-wider group-hover:text-primary transition-colors">Curd in Clay Pots</h4>
+                            <span class="text-primary font-bold text-sm">8 pots</span>
+                        </div>
+                        <p class="text-sm text-secondary-fixed-dim leading-relaxed">Set overnight in earthen pots. Thick, cool, and perfect after a long afternoon in the garden.</p>
+                    </div>
+                    <div class="bg-surface-container-low p-8 rounded-2xl border border-on-surface/5 group hover:border-primary/20 transition-all">
+                        <div class="flex justify-between items-start mb-4 gap-3">
+                            <h4 class="font-headline text-lg font-bold uppercase tracking-wider group-hover:text-primary transition-colors">Buttermilk for Anyone</h4>
+                            <span class="text-primary font-bold text-sm">Free</span>
+                        </div>
+                        <p class="text-sm text-secondary-fixed-dim leading-relaxed">Anyone who walks past the kitchen at noon gets a glass. No questions, no payment, no exceptions.</p>
+                    </div>
+                </div>
+                <div class="farm-panel hidden grid-cols-1 md:grid-cols-3 gap-8 transition-opacity duration-300" data-panel="vegetables">
+                    <div class="bg-surface-container-low p-8 rounded-2xl border border-on-surface/5 group hover:border-primary/20 transition-all">
+                        <div class="flex justify-between items-start mb-4 gap-3">
+                            <h4 class="font-headline text-lg font-bold uppercase tracking-wider group-hover:text-primary transition-colors">Spinach &amp; Greens</h4>
+                            <span class="text-primary font-bold text-sm">Daily</span>
+                        </div>
+                        <p class="text-sm text-secondary-fixed-dim leading-relaxed">Palak, methi, amaranth — whatever the children pulled out of the bed this morning before school.</p>
+                    </div>
+                    <div class="bg-surface-container-low p-8 rounded-2xl border border-on-surface/5 group hover:border-primary/20 transition-all relative">
+                        <span class="absolute -top-3 left-6 bg-tertiary-fixed text-on-surface text-[10px] tracking-widest uppercase px-3 py-1 rounded-full font-bold">In Season</span>
+                        <div class="flex justify-between items-start mb-4 gap-3">
+                            <h4 class="font-headline text-lg font-bold uppercase tracking-wider group-hover:text-primary transition-colors">Tomato &amp; Brinjal</h4>
+                            <span class="text-primary font-bold text-sm">Heavy</span>
+                        </div>
+                        <p class="text-sm text-secondary-fixed-dim leading-relaxed">More than the kitchen can use. The cart goes to the village twice a week.</p>
+                    </div>
+                    <div class="bg-surface-container-low p-8 rounded-2xl border border-on-surface/5 group hover:border-primary/20 transition-all">
+                        <div class="flex justify-between items-start mb-4 gap-3">
+                            <h4 class="font-headline text-lg font-bold uppercase tracking-wider group-hover:text-primary transition-colors">Beans, Gourd, Drumstick</h4>
+                            <span class="text-primary font-bold text-sm">Steady</span>
+                        </div>
+                        <p class="text-sm text-secondary-fixed-dim leading-relaxed">The trellises behind the elders' wing carry beans most of the year. The drumstick tree never quits.</p>
+                    </div>
+                </div>
+                <div class="farm-panel hidden grid-cols-1 md:grid-cols-3 gap-8 transition-opacity duration-300" data-panel="fruits">
+                    <div class="bg-surface-container-low p-8 rounded-2xl border border-on-surface/5 group hover:border-primary/20 transition-all">
+                        <div class="flex justify-between items-start mb-4 gap-3">
+                            <h4 class="font-headline text-lg font-bold uppercase tracking-wider group-hover:text-primary transition-colors">Mango (Summer)</h4>
+                            <span class="text-primary font-bold text-sm">May–Jul</span>
+                        </div>
+                        <p class="text-sm text-secondary-fixed-dim leading-relaxed">Five trees my father planted in 1980. Half the village waits for the first ripe one each May.</p>
+                    </div>
+                    <div class="bg-surface-container-low p-8 rounded-2xl border border-on-surface/5 group hover:border-primary/20 transition-all">
+                        <div class="flex justify-between items-start mb-4 gap-3">
+                            <h4 class="font-headline text-lg font-bold uppercase tracking-wider group-hover:text-primary transition-colors">Guava &amp; Chickoo</h4>
+                            <span class="text-primary font-bold text-sm">Aug–Nov</span>
+                        </div>
+                        <p class="text-sm text-secondary-fixed-dim leading-relaxed">The children have a chart. They know which tree is ready before we do.</p>
+                    </div>
+                    <div class="bg-surface-container-low p-8 rounded-2xl border border-on-surface/5 group hover:border-primary/20 transition-all">
+                        <div class="flex justify-between items-start mb-4 gap-3">
+                            <h4 class="font-headline text-lg font-bold uppercase tracking-wider group-hover:text-primary transition-colors">Papaya, Year-Round</h4>
+                            <span class="text-primary font-bold text-sm">Always</span>
+                        </div>
+                        <p class="text-sm text-secondary-fixed-dim leading-relaxed">Soft enough for elders, sweet enough that the children fight over it. We have learned to plant more.</p>
+                    </div>
+                </div>
+                <div class="farm-panel hidden grid-cols-1 md:grid-cols-3 gap-8 transition-opacity duration-300" data-panel="seasonal">
+                    <div class="bg-surface-container-low p-8 rounded-2xl border border-on-surface/5 group hover:border-primary/20 transition-all relative">
+                        <span class="absolute -top-3 left-6 bg-accent-wing text-background text-[10px] tracking-widest uppercase px-3 py-1 rounded-full font-bold">This Week</span>
+                        <div class="flex justify-between items-start mb-4 gap-3">
+                            <h4 class="font-headline text-lg font-bold uppercase tracking-wider group-hover:text-primary transition-colors">Wild Honey</h4>
+                            <span class="text-primary font-bold text-sm">2 jars</span>
+                        </div>
+                        <p class="text-sm text-secondary-fixed-dim leading-relaxed">A neighbor brought it. We sent back vegetables. That is how the village works.</p>
+                    </div>
+                    <div class="bg-surface-container-low p-8 rounded-2xl border border-on-surface/5 group hover:border-primary/20 transition-all">
+                        <div class="flex justify-between items-start mb-4 gap-3">
+                            <h4 class="font-headline text-lg font-bold uppercase tracking-wider group-hover:text-primary transition-colors">Pickled Mango</h4>
+                            <span class="text-primary font-bold text-sm">Pantry</span>
+                        </div>
+                        <p class="text-sm text-secondary-fixed-dim leading-relaxed">Made in May, eaten all year. The elders supervise. The children sneak.</p>
+                    </div>
+                    <div class="bg-surface-container-low p-8 rounded-2xl border border-on-surface/5 group hover:border-primary/20 transition-all">
+                        <div class="flex justify-between items-start mb-4 gap-3">
+                            <h4 class="font-headline text-lg font-bold uppercase tracking-wider group-hover:text-primary transition-colors">Tulsi &amp; Lemongrass</h4>
+                            <span class="text-primary font-bold text-sm">Always</span>
+                        </div>
+                        <p class="text-sm text-secondary-fixed-dim leading-relaxed">Pulled fresh for the morning tea. The garden never runs out, even in winter.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Impact -->
+    <section id="impact" class="section-reveal py-32 px-6 z-10 relative bg-primary text-background overflow-hidden">
+        <!-- Decorative wing motif -->
+        <svg class="absolute -top-12 -right-12 w-96 h-96 opacity-10 text-tertiary-fixed" viewBox="0 0 200 200" fill="currentColor" aria-hidden="true">
+            <path d="M100 40 C 60 40, 30 65, 30 95 C 30 125, 60 140, 90 130 C 90 155, 75 170, 90 185 C 100 195, 100 175, 100 165 C 100 175, 100 195, 110 185 C 125 170, 110 155, 110 130 C 140 140, 170 125, 170 95 C 170 65, 140 40, 100 40 Z"/>
+        </svg>
+        <div class="max-w-6xl mx-auto relative">
+            <div class="text-center mb-20">
+                <p class="font-headline text-[11px] tracking-[0.4em] uppercase text-tertiary-fixed mb-4">Together · Since 2014</p>
+                <h2 class="font-headline text-4xl md:text-5xl font-bold tracking-wide mb-4">What Many Hands Have Made</h2>
+                <p class="text-background/70 max-w-xl mx-auto leading-relaxed">Numbers don't tell the whole story. But they tell some of it. None of this would exist without the families and friends who built it with us.</p>
+            </div>
+            <div id="impact-grid" class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div class="text-center">
+                    <span class="impact-num block text-5xl md:text-6xl font-headline font-bold text-tertiary-fixed mb-3 tabular-nums" data-target="21" data-suffix="">0</span>
+                    <span class="font-headline text-xs uppercase tracking-[0.25em] text-background/60">Children &amp; Elders At Home</span>
+                </div>
+                <div class="text-center">
+                    <span class="impact-num block text-5xl md:text-6xl font-headline font-bold text-tertiary-fixed mb-3 tabular-nums" data-target="14600" data-suffix="+">0</span>
+                    <span class="font-headline text-xs uppercase tracking-[0.25em] text-background/60">Gallons of Milk Shared</span>
+                </div>
+                <div class="text-center">
+                    <span class="impact-num block text-5xl md:text-6xl font-headline font-bold text-tertiary-fixed mb-3 tabular-nums" data-target="89000" data-suffix="+">0</span>
+                    <span class="font-headline text-xs uppercase tracking-[0.25em] text-background/60">Meals Cooked &amp; Given</span>
+                </div>
+                <div class="text-center">
+                    <span class="impact-num block text-5xl md:text-6xl font-headline font-bold text-tertiary-fixed mb-3 tabular-nums" data-target="312" data-suffix="">0</span>
+                    <span class="font-headline text-xs uppercase tracking-[0.25em] text-background/60">Volunteers Through Our Door</span>
+                </div>
+            </div>
+            <div class="mt-20 grid grid-cols-1 md:grid-cols-3 gap-6">
+                <a href="#contact" class="bg-tertiary-fixed text-on-surface p-8 rounded-2xl text-center hover:bg-background hover:text-primary transition-colors group">
+                    <span class="material-symbols-outlined text-3xl mb-3" style="font-variation-settings:'FILL' 1;">favorite</span>
+                    <h4 class="font-headline text-lg font-bold uppercase tracking-widest mb-2">Donate</h4>
+                    <p class="text-xs opacity-80">Money, milk, books, blankets — whatever you can spare.</p>
+                </a>
+                <a href="#contact" class="bg-background/10 border border-background/20 p-8 rounded-2xl text-center hover:bg-background/20 transition-colors group">
+                    <span class="material-symbols-outlined text-3xl mb-3 text-tertiary-fixed">volunteer_activism</span>
+                    <h4 class="font-headline text-lg font-bold uppercase tracking-widest mb-2">Volunteer</h4>
+                    <p class="text-xs text-background/70">Teach, cook, garden, listen, drive a cart of vegetables.</p>
+                </a>
+                <a href="#contact" class="bg-background/10 border border-background/20 p-8 rounded-2xl text-center hover:bg-background/20 transition-colors group">
+                    <span class="material-symbols-outlined text-3xl mb-3 text-tertiary-fixed">cottage</span>
+                    <h4 class="font-headline text-lg font-bold uppercase tracking-widest mb-2">Visit</h4>
+                    <p class="text-xs text-background/70">Saturday mornings. Tea on the verandah. Bring your children.</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Caretakers / Family -->
+    <section id="our-family" class="section-reveal py-32 px-6 z-10 relative bg-surface-container-low/30">
+        <div class="max-w-6xl mx-auto text-center mb-20">
+            <p class="font-headline text-[11px] tracking-[0.4em] uppercase text-primary mb-4">The People Who Stay</p>
+            <h2 class="font-headline text-4xl font-bold text-on-surface tracking-wide mb-4">Our Caretakers</h2>
+            <p class="text-secondary-fixed-dim max-w-xl mx-auto">A small staff and a long list of volunteers. The people who cook, garden, teach, drive, doctor, and sit on the verandah listening to old stories.</p>
+            <div class="w-24 h-[1px] bg-primary mx-auto mt-6"></div>
+        </div>
+        <div class="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 md:gap-8">
+            <!-- Srinivas — Founder -->
+            <div class="bg-background p-4 rounded-xl border border-on-surface/5 group text-center">
+                <div class="aspect-[3/4] bg-surface-container-low rounded-lg mb-6 overflow-hidden relative">
+                    <img src="images/caretakers/srinivas.jpeg" alt="Srinivas, Founder" class="w-full h-full object-cover object-top grayscale group-hover:grayscale-0 transition-all duration-700" loading="lazy" decoding="async">
+                </div>
+                <h4 class="font-headline font-bold text-lg uppercase tracking-wider">Srinivas</h4>
+                <p class="text-primary text-[10px] uppercase tracking-[0.25em] font-bold mt-1">Founder</p>
+            </div>
+            <!-- Swetha — Manager -->
+            <div class="bg-background p-4 rounded-xl border border-on-surface/5 group text-center">
+                <div class="aspect-[3/4] bg-surface-container-low rounded-lg mb-6 overflow-hidden relative">
+                    <img src="images/caretakers/swetha.jpeg" alt="Swetha, Manager" class="w-full h-full object-cover object-top grayscale group-hover:grayscale-0 transition-all duration-700" loading="lazy" decoding="async">
+                </div>
+                <h4 class="font-headline font-bold text-lg uppercase tracking-wider">Swetha</h4>
+                <p class="text-primary text-[10px] uppercase tracking-[0.25em] font-bold mt-1">Manager</p>
+            </div>
+            <!-- Varsha — Elders' Wing Mother -->
+            <div class="bg-background p-4 rounded-xl border border-on-surface/5 group text-center">
+                <div class="aspect-[3/4] bg-surface-container-low rounded-lg mb-6 overflow-hidden relative">
+                    <img src="images/caretakers/varsha.jpeg" alt="Varsha, Elders' Wing Carer" class="w-full h-full object-cover object-top grayscale group-hover:grayscale-0 transition-all duration-700" loading="lazy" decoding="async">
+                </div>
+                <h4 class="font-headline font-bold text-lg uppercase tracking-wider">Varsha</h4>
+                <p class="text-primary text-[10px] uppercase tracking-[0.25em] font-bold mt-1">Elders' Wing Carer</p>
+            </div>
+            <!-- Chaturya — Children's Wing Coordinator -->
+            <div class="bg-background p-4 rounded-xl border border-on-surface/5 group text-center">
+                <div class="aspect-[3/4] bg-surface-container-low rounded-lg mb-6 overflow-hidden relative">
+                    <img src="images/caretakers/chaturya.jpeg" alt="Chaturya, Children's Wing Coordinator" class="w-full h-full object-cover object-top grayscale group-hover:grayscale-0 transition-all duration-700" loading="lazy" decoding="async">
+                </div>
+                <h4 class="font-headline font-bold text-lg uppercase tracking-wider">Chaturya</h4>
+                <p class="text-primary text-[10px] uppercase tracking-[0.25em] font-bold mt-1">Children's Wing Coordinator</p>
+            </div>
+            <!-- Akhil — Schoolroom Tutor -->
+            <div class="bg-background p-4 rounded-xl border border-on-surface/5 group text-center">
+                <div class="aspect-[3/4] bg-surface-container-low rounded-lg mb-6 overflow-hidden relative">
+                    <img src="images/caretakers/akhil.jpeg" alt="Akhil, Schoolroom Tutor" class="w-full h-full object-cover object-top grayscale group-hover:grayscale-0 transition-all duration-700" loading="lazy" decoding="async">
+                </div>
+                <h4 class="font-headline font-bold text-lg uppercase tracking-wider">Akhil</h4>
+                <p class="text-primary text-[10px] uppercase tracking-[0.25em] font-bold mt-1">Schoolroom Tutor</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery -->
+    <section id="gallery" class="section-reveal py-32 px-6 z-10 relative">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-20">
+                <h2 class="font-headline text-4xl font-bold text-tertiary-fixed uppercase tracking-widest mb-4">FARM LIFE</h2>
+                <p class="text-secondary-fixed-dim">A field journal in pictures.</p>
+            </div>
+            <div class="columns-2 md:columns-3 lg:columns-4 gap-4 [column-fill:_balance]">
+                <figure class="mb-4 break-inside-avoid overflow-hidden rounded-2xl border border-on-surface/5">
+                    <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=600&auto=format&fit=crop" alt="Patchwork of green fields at sunrise" class="w-full h-auto object-cover hover:scale-105 transition-transform duration-700" loading="lazy" decoding="async">
+                </figure>
+                <figure class="mb-4 break-inside-avoid overflow-hidden rounded-2xl border border-on-surface/5">
+                    <img src="https://images.unsplash.com/photo-1535398089889-dd807df1dfaa?q=80&w=600&auto=format&fit=crop" alt="Hands holding fresh wheat stalks" class="w-full h-auto object-cover hover:scale-105 transition-transform duration-700" loading="lazy" decoding="async">
+                </figure>
+                <figure class="mb-4 break-inside-avoid overflow-hidden rounded-2xl border border-on-surface/5">
+                    <img src="https://images.unsplash.com/photo-1546445317-29f4545e9d53?q=80&w=600&auto=format&fit=crop" alt="Cow in golden hour pasture" class="w-full h-auto object-cover hover:scale-105 transition-transform duration-700" loading="lazy" decoding="async">
+                </figure>
+                <figure class="mb-4 break-inside-avoid overflow-hidden rounded-2xl border border-on-surface/5">
+                    <img src="https://images.unsplash.com/photo-1550583724-1d2ee29ad7a2?q=80&w=600&auto=format&fit=crop" alt="Bottles of fresh milk on a wooden table" class="w-full h-auto object-cover hover:scale-105 transition-transform duration-700" loading="lazy" decoding="async">
+                </figure>
+                <figure class="mb-4 break-inside-avoid overflow-hidden rounded-2xl border border-on-surface/5">
+                    <img src="https://images.unsplash.com/photo-1500595046743-cd271d694d30?q=80&w=600&auto=format&fit=crop" alt="Rolling farm hills under warm light" class="w-full h-auto object-cover hover:scale-105 transition-transform duration-700" loading="lazy" decoding="async">
+                </figure>
+                <figure class="mb-4 break-inside-avoid overflow-hidden rounded-2xl border border-on-surface/5">
+                    <img src="https://images.unsplash.com/photo-1596733430284-f7437764b1a9?q=80&w=600&auto=format&fit=crop" alt="Calf resting in barn" class="w-full h-auto object-cover hover:scale-105 transition-transform duration-700" loading="lazy" decoding="async">
+                </figure>
+                <figure class="mb-4 break-inside-avoid overflow-hidden rounded-2xl border border-on-surface/5">
+                    <img src="https://images.unsplash.com/photo-1589927986089-35812388d1f4?q=80&w=600&auto=format&fit=crop" alt="Jar of golden ghee" class="w-full h-auto object-cover hover:scale-105 transition-transform duration-700" loading="lazy" decoding="async">
+                </figure>
+                <figure class="mb-4 break-inside-avoid overflow-hidden rounded-2xl border border-on-surface/5">
+                    <img src="https://images.unsplash.com/photo-1566838312088-cdf67d40c39a?q=80&w=600&auto=format&fit=crop" alt="Buffalo at the watering trough" class="w-full h-auto object-cover hover:scale-105 transition-transform duration-700" loading="lazy" decoding="async">
+                </figure>
+            </div>
+        </div>
+    </section>
+
+    <!-- Voices -->
+    <section id="testimonials" class="section-reveal py-32 px-6 z-10 relative bg-surface-container-low/30">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-16">
+                <p class="font-headline text-[11px] tracking-[0.4em] uppercase text-primary mb-4">From The Verandah</p>
+                <h2 class="font-headline text-4xl font-bold text-on-surface tracking-wide mb-4">Voices From The House</h2>
+                <p class="text-secondary-fixed-dim">Children, elders, and the neighbors who make this possible.</p>
+            </div>
+            <div class="relative">
+                <div id="testimonial-track" class="relative min-h-[260px]">
+                    <article class="testimonial-slide absolute inset-0 transition-opacity duration-500 opacity-100" data-index="0">
+                        <div class="bg-background p-12 rounded-3xl border border-primary/10 text-center">
+                            <div class="flex justify-center gap-1 text-primary mb-6" aria-label="5 out of 5 stars">
+                                <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">star</span>
+                                <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">star</span>
+                                <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">star</span>
+                                <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">star</span>
+                                <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">star</span>
+                            </div>
+                            <blockquote class="font-headline text-xl md:text-2xl italic leading-relaxed text-on-surface mb-8">"They named me on a Tuesday. I had never been named before. Now my name is called every morning."</blockquote>
+                            <p class="font-headline text-xs tracking-[0.3em] uppercase text-primary">Aarav, age 11 — at the House since 2020</p>
+                        </div>
+                    </article>
+                    <article class="testimonial-slide absolute inset-0 transition-opacity duration-500 opacity-0 pointer-events-none" data-index="1">
+                        <div class="bg-background p-12 rounded-3xl border border-primary/10 text-center">
+                            <div class="flex justify-center gap-1 text-primary mb-6" aria-label="5 out of 5 stars">
+                                <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">star</span>
+                                <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">star</span>
+                                <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">star</span>
+                                <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">star</span>
+                                <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">star</span>
+                            </div>
+                            <blockquote class="font-headline text-xl md:text-2xl italic leading-relaxed text-on-surface mb-8">"My son left me at a bus stand. The strangers here brought me home. I have not been alone in five years."</blockquote>
+                            <p class="font-headline text-xs tracking-[0.3em] uppercase text-primary">Lata-amma, age 78 — Elders' Wing</p>
+                        </div>
+                    </article>
+                    <article class="testimonial-slide absolute inset-0 transition-opacity duration-500 opacity-0 pointer-events-none" data-index="2">
+                        <div class="bg-background p-12 rounded-3xl border border-primary/10 text-center">
+                            <div class="flex justify-center gap-1 text-primary mb-6" aria-label="5 out of 5 stars">
+                                <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">star</span>
+                                <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">star</span>
+                                <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">star</span>
+                                <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">star</span>
+                                <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">star</span>
+                            </div>
+                            <blockquote class="font-headline text-xl md:text-2xl italic leading-relaxed text-on-surface mb-8">"I bring vegetables every Saturday. They send back milk. The exchange is unequal in my favor — I leave with a better day than I came with."</blockquote>
+                            <p class="font-headline text-xs tracking-[0.3em] uppercase text-primary">Suresh, neighbor — village volunteer since 2015</p>
+                        </div>
+                    </article>
+                </div>
+                <div class="flex justify-center gap-3 mt-10">
+                    <button class="testimonial-dot w-2 h-2 rounded-full bg-primary transition-all" data-target="0" aria-label="Show testimonial 1"></button>
+                    <button class="testimonial-dot w-2 h-2 rounded-full bg-primary/20 transition-all" data-target="1" aria-label="Show testimonial 2"></button>
+                    <button class="testimonial-dot w-2 h-2 rounded-full bg-primary/20 transition-all" data-target="2" aria-label="Show testimonial 3"></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="section-reveal py-32 px-6 z-10 relative">
+        <div class="max-w-3xl mx-auto">
+            <div class="text-center mb-16">
+                <p class="font-headline text-[11px] tracking-[0.4em] uppercase text-primary mb-4">Things People Ask Us</p>
+                <h2 class="font-headline text-4xl font-bold text-on-surface tracking-wide mb-4">Honest Answers</h2>
+                <p class="text-secondary-fixed-dim">A small place, often misunderstood. Here is what we are and what we are not.</p>
+            </div>
+            <div class="divide-y divide-on-surface/5 border-y border-on-surface/5">
+                <details class="faq-item group py-6">
+                    <summary class="flex items-start justify-between gap-6 cursor-pointer list-none">
+                        <h3 class="font-headline text-lg font-bold uppercase tracking-wider">Are you an orphanage? An old-age home?</h3>
+                        <span class="material-symbols-outlined text-primary transition-transform duration-300 group-open:rotate-180" aria-hidden="true">expand_more</span>
+                    </summary>
+                    <p class="mt-4 text-secondary-fixed-dim leading-relaxed">Both. Neither. We are a family that grew. The children and elders share a kitchen, a garden, and most evenings on the verandah. Whatever you want to call it, we just call it home.</p>
+                </details>
+                <details class="faq-item group py-6">
+                    <summary class="flex items-start justify-between gap-6 cursor-pointer list-none">
+                        <h3 class="font-headline text-lg font-bold uppercase tracking-wider">Do you sell the milk and vegetables?</h3>
+                        <span class="material-symbols-outlined text-primary transition-transform duration-300 group-open:rotate-180" aria-hidden="true">expand_more</span>
+                    </summary>
+                    <p class="mt-4 text-secondary-fixed-dim leading-relaxed">No. The kitchen takes what it needs and the rest goes to the village. People bring back what they can. Some days that is rice, some days a hand to weed, some days nothing — and that is also fine.</p>
+                </details>
+                <details class="faq-item group py-6">
+                    <summary class="flex items-start justify-between gap-6 cursor-pointer list-none">
+                        <h3 class="font-headline text-lg font-bold uppercase tracking-wider">How do donations get used?</h3>
+                        <span class="material-symbols-outlined text-primary transition-transform duration-300 group-open:rotate-180" aria-hidden="true">expand_more</span>
+                    </summary>
+                    <p class="mt-4 text-secondary-fixed-dim leading-relaxed">School fees, books, uniforms, doctor's visits, medicine for the elders, repairs to the roof when the monsoon finds a hole. We keep a ledger pinned in the kitchen that anyone can read.</p>
+                </details>
+                <details class="faq-item group py-6">
+                    <summary class="flex items-start justify-between gap-6 cursor-pointer list-none">
+                        <h3 class="font-headline text-lg font-bold uppercase tracking-wider">Can I volunteer? What is needed?</h3>
+                        <span class="material-symbols-outlined text-primary transition-transform duration-300 group-open:rotate-180" aria-hidden="true">expand_more</span>
+                    </summary>
+                    <p class="mt-4 text-secondary-fixed-dim leading-relaxed">Yes — teachers for the children, doctors and nurses for the elders, hands in the garden, drivers for the cart, and anyone willing to sit and listen to a long story patiently. Tell us what you can spare and we will tell you when.</p>
+                </details>
+                <details class="faq-item group py-6">
+                    <summary class="flex items-start justify-between gap-6 cursor-pointer list-none">
+                        <h3 class="font-headline text-lg font-bold uppercase tracking-wider">Can I bring my children to visit?</h3>
+                        <span class="material-symbols-outlined text-primary transition-transform duration-300 group-open:rotate-180" aria-hidden="true">expand_more</span>
+                    </summary>
+                    <p class="mt-4 text-secondary-fixed-dim leading-relaxed">Saturday mornings, please. Tea on the verandah, a tour of the garden, and the elders will likely steal them for stories. Send us a note first — the gate is small.</p>
+                </details>
+                <details class="faq-item group py-6">
+                    <summary class="flex items-start justify-between gap-6 cursor-pointer list-none">
+                        <h3 class="font-headline text-lg font-bold uppercase tracking-wider">Why call it the Butterfly House?</h3>
+                        <span class="material-symbols-outlined text-primary transition-transform duration-300 group-open:rotate-180" aria-hidden="true">expand_more</span>
+                    </summary>
+                    <p class="mt-4 text-secondary-fixed-dim leading-relaxed">The first child we took in saw a butterfly on the gate the morning he arrived. He told an elder that the butterfly had brought him here. We did not have a better story than his, so we used it.</p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Footer -->
+    <footer id="contact" class="section-reveal py-32 px-6 z-10 relative border-t border-on-surface/5">
+        <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-24">
+            <div>
+                <p class="font-headline text-[11px] tracking-[0.4em] uppercase text-primary mb-3">Get Involved</p>
+                <h2 class="font-headline text-4xl font-bold tracking-wide mb-8">Write To Us</h2>
+                <form id="contact-form" class="space-y-6" novalidate>
+                    <div>
+                        <label for="cf-name" class="block font-headline text-[10px] tracking-[0.3em] uppercase text-secondary-fixed-dim mb-2">Your Name</label>
+                        <input id="cf-name" name="name" type="text" required class="w-full bg-white/5 border-b border-on-surface/10 p-4 text-sm focus:border-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-tertiary-fixed focus-visible:outline-offset-2 outline-none transition-all">
+                    </div>
+                    <div>
+                        <label for="cf-email" class="block font-headline text-[10px] tracking-[0.3em] uppercase text-secondary-fixed-dim mb-2">Your Email</label>
+                        <input id="cf-email" name="email" type="email" required class="w-full bg-white/5 border-b border-on-surface/10 p-4 text-sm focus:border-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-tertiary-fixed focus-visible:outline-offset-2 outline-none transition-all">
+                    </div>
+                    <div>
+                        <label for="cf-inquiry" class="block font-headline text-[10px] tracking-[0.3em] uppercase text-secondary-fixed-dim mb-2">How can we connect?</label>
+                        <select id="cf-inquiry" name="inquiry" required class="w-full bg-white/5 border-b border-on-surface/10 p-4 text-sm focus:border-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-tertiary-fixed focus-visible:outline-offset-2 outline-none transition-all appearance-none">
+                            <option value="">Choose one…</option>
+                            <option value="donate">Donate (money, supplies, food)</option>
+                            <option value="volunteer">Volunteer my time</option>
+                            <option value="visit">Visit on a Saturday</option>
+                            <option value="refer">Refer a child or elder in need</option>
+                            <option value="partner">Partner with us (school, hospital, NGO)</option>
+                            <option value="other">Something else</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="cf-message" class="block font-headline text-[10px] tracking-[0.3em] uppercase text-secondary-fixed-dim mb-2">Tell us a little</label>
+                        <textarea id="cf-message" name="message" rows="4" required class="w-full bg-white/5 border-b border-on-surface/10 p-4 text-sm focus:border-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-tertiary-fixed focus-visible:outline-offset-2 outline-none transition-all"></textarea>
+                    </div>
+                    <p id="cf-error" class="hidden text-xs text-accent-wing font-headline tracking-widest uppercase" role="alert"></p>
+                    <button type="submit" class="w-full bg-primary text-background font-headline font-bold py-4 rounded-full tracking-[0.2em] uppercase hover:bg-primary-soft transition-colors">SEND</button>
+                </form>
+            </div>
+
+            <div id="toast" role="status" aria-live="polite" class="fixed bottom-8 right-8 z-[80] translate-y-32 opacity-0 transition-all duration-300 bg-on-surface text-background px-6 py-4 rounded-2xl shadow-2xl flex items-center gap-3 max-w-sm">
+                <span class="material-symbols-outlined text-tertiary-fixed" style="color:#C9A961; font-variation-settings:'FILL' 1;">flutter_dash</span>
+                <div>
+                    <p class="font-headline text-xs uppercase tracking-widest">Thank you</p>
+                    <p class="text-xs opacity-70 mt-1">A note from us will land in your inbox soon.</p>
+                </div>
+            </div>
+            <div class="flex flex-col justify-center space-y-12">
+                <div class="border-l-2 border-primary/30 pl-8">
+                    <h3 class="font-headline text-lg font-bold uppercase tracking-widest mb-4 text-primary">FIND US</h3>
+                    <address class="not-italic text-secondary-fixed-dim font-headline text-sm tracking-widest leading-loose">
+                        THE BUTTERFLY HOUSE<br/>
+                        AT SRINIVAS FARM<br/>
+                        BUTTERFLY LANE, OUR VILLAGE
+                    </address>
+                </div>
+                <div class="border-l-2 border-primary/30 pl-8">
+                    <h3 class="font-headline text-lg font-bold uppercase tracking-widest mb-4 text-primary">VISITING HOURS</h3>
+                    <div class="font-headline text-sm tracking-widest text-secondary-fixed-dim leading-loose">
+                        SATURDAYS / 09:00 — 12:00<br/>
+                        DONATIONS WELCOME ANYTIME<br/>
+                        SUNDAYS — THE HOUSE RESTS
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="max-w-6xl mx-auto mt-32 pt-12 border-t border-on-surface/5 flex flex-col md:flex-row justify-between items-center gap-8 opacity-40">
+            <div class="text-[10px] tracking-[0.3em] uppercase">© 2026 THE BUTTERFLY HOUSE AT SRINIVAS FARM — A SMALL PLACE, OPEN TO ALL</div>
+            <div class="flex gap-8 text-[10px] tracking-[0.3em] uppercase">
+                <a href="#" class="hover:text-primary">Privacy Policy</a>
+                <a href="#contact" class="hover:text-primary">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bottom Bar (Mobile Only) -->
+    <nav class="md:hidden fixed bottom-0 w-full z-50 bg-on-surface/90 backdrop-blur-xl border-t border-on-surface/5 py-3 flex justify-around items-center">
+        <a href="#about" class="flex flex-col items-center gap-1 text-background/60 hover:text-tertiary-fixed transition-colors"><span class="material-symbols-outlined">cottage</span><span class="text-[8px] uppercase tracking-widest">Story</span></a>
+        <a href="#butterfly-house" class="flex flex-col items-center gap-1 text-tertiary-fixed"><span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">flutter_dash</span><span class="text-[8px] uppercase tracking-widest">House</span></a>
+        <a href="#impact" class="flex flex-col items-center gap-1 text-background/60 hover:text-tertiary-fixed transition-colors"><span class="material-symbols-outlined">favorite</span><span class="text-[8px] uppercase tracking-widest">Impact</span></a>
+        <a href="#contact" class="flex flex-col items-center gap-1 text-background/60 hover:text-tertiary-fixed transition-colors"><span class="material-symbols-outlined">mail</span><span class="text-[8px] uppercase tracking-widest">Contact</span></a>
+    </nav>
+
+    <script>
+        // Drifting Butterflies (canvas)
+        const canvas = document.getElementById('starfield');
+        const ctx = canvas.getContext('2d');
+        let butterflies = [];
+        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        const wingPalette = ['#C9A961', '#C2552D', '#4A7C59', '#A89055', '#D9B26B'];
+
+        function initButterflies() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            butterflies = []; // ambient butterflies are off — only click/scroll-in triggers a one-shot release
+        }
+
+        function drawButterfly(b) {
+            const wingScale = Math.abs(Math.sin(b.flap)) * 0.85 + 0.15;
+            const s = b.size;
+            ctx.save();
+            ctx.translate(b.x, b.y);
+            if (b.angle) ctx.rotate(b.angle);
+            ctx.scale(b.direction, 1);
+            ctx.globalAlpha = b.opacity;
+            ctx.fillStyle = b.color;
+
+            // Upper wings
+            ctx.beginPath();
+            ctx.ellipse(-s * 0.55 * wingScale, -s * 0.25, s * 0.85 * wingScale, s * 0.7, -0.4, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.beginPath();
+            ctx.ellipse(s * 0.55 * wingScale, -s * 0.25, s * 0.85 * wingScale, s * 0.7, 0.4, 0, Math.PI * 2);
+            ctx.fill();
+
+            // Lower wings
+            ctx.globalAlpha = b.opacity * 0.85;
+            ctx.beginPath();
+            ctx.ellipse(-s * 0.5 * wingScale, s * 0.4, s * 0.55 * wingScale, s * 0.55, 0.3, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.beginPath();
+            ctx.ellipse(s * 0.5 * wingScale, s * 0.4, s * 0.55 * wingScale, s * 0.55, -0.3, 0, Math.PI * 2);
+            ctx.fill();
+
+            // Body
+            ctx.globalAlpha = b.opacity;
+            ctx.fillStyle = '#1A2418';
+            ctx.beginPath();
+            ctx.ellipse(0, 0, s * 0.12, s * 0.85, 0, 0, Math.PI * 2);
+            ctx.fill();
+
+            ctx.restore();
+        }
+
+        // One-shot burst butterflies (released when user clicks "The House")
+        let burstButterflies = [];
+        const BURST_CAP = 90;
+
+        function releaseButterflies() {
+            if (reduceMotion) return;
+            if (burstButterflies.length > BURST_CAP) {
+                ensureAnimationRunning();
+                return;
+            }
+
+            const count = 32;
+            const cx = canvas.width / 2;
+            const cy = canvas.height + 24;
+            const now = performance.now();
+
+            for (let i = 0; i < count; i++) {
+                const angle = (-Math.PI / 2) + (Math.random() - 0.5) * (Math.PI * 0.95);
+                const speed = 2.6 + Math.random() * 3.6;
+                burstButterflies.push({
+                    x: cx + (Math.random() - 0.5) * 240,
+                    y: cy + Math.random() * 30,
+                    vx: Math.cos(angle) * speed,
+                    vy: Math.sin(angle) * speed,
+                    size: 9 + Math.random() * 11,
+                    color: wingPalette[Math.floor(Math.random() * wingPalette.length)],
+                    direction: 1,
+                    angle: 0,
+                    angleSpeed: (Math.random() - 0.5) * 0.04,
+                    flap: Math.random() * Math.PI * 2,
+                    flapSpeed: 0.18 + Math.random() * 0.10,
+                    opacity: 0,
+                    maxLife: 3200 + Math.random() * 1400,
+                    born: now
+                });
+            }
+
+            ensureAnimationRunning();
+        }
+
+        function updateBurst(now) {
+            for (let i = burstButterflies.length - 1; i >= 0; i--) {
+                const b = burstButterflies[i];
+                const age = now - b.born;
+                if (age >= b.maxLife) { burstButterflies.splice(i, 1); continue; }
+
+                b.x += b.vx;
+                b.y += b.vy;
+                b.vy += 0.025;
+                b.vx *= 0.998;
+                b.flap += b.flapSpeed;
+                b.angle += b.angleSpeed;
+                b.direction = b.vx >= 0 ? 1 : -1;
+
+                const fadeIn = 220;
+                const fadeOutStart = b.maxLife - 1500;
+                let opacity = 0.95;
+                if (age < fadeIn) opacity = age / fadeIn;
+                else if (age > fadeOutStart) opacity = Math.max(0, (b.maxLife - age) / 1500);
+                b.opacity = opacity;
+
+                drawButterfly(b);
+            }
+        }
+
+        let animationRunning = false;
+
+        function animateButterflies() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            butterflies.forEach((b) => {
+                b.x += b.speedX * b.direction;
+                b.y += Math.sin(b.flap * 0.5) * 0.4 + b.drift;
+                b.flap += b.flapSpeed;
+
+                if (b.x > canvas.width + 30) { b.x = -30; b.y = Math.random() * canvas.height; }
+                if (b.x < -30) { b.x = canvas.width + 30; b.y = Math.random() * canvas.height; }
+                if (b.y < -20) b.y = canvas.height + 20;
+                if (b.y > canvas.height + 20) b.y = -20;
+
+                drawButterfly(b);
+            });
+
+            if (burstButterflies.length) updateBurst(performance.now());
+
+            if (butterflies.length || burstButterflies.length) {
+                requestAnimationFrame(animateButterflies);
+            } else {
+                animationRunning = false;
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+            }
+        }
+
+        function ensureAnimationRunning() {
+            if (!animationRunning) {
+                animationRunning = true;
+                requestAnimationFrame(animateButterflies);
+            }
+        }
+
+        function initButterflyRelease() {
+            document.querySelectorAll('a[href="#butterfly-house"]').forEach((a) => {
+                a.addEventListener('click', () => releaseButterflies());
+            });
+
+            const target = document.getElementById('butterfly-house');
+            if (!target) return;
+            const obs = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        releaseButterflies();
+                        obs.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.2 });
+            obs.observe(target);
+        }
+
+        // Hero Headline Reveal
+        function animateHeadline() {
+            const headline = document.getElementById('hero-headline');
+            if (!headline) return;
+            const text = "SRINIVAS FARM";
+            headline.innerHTML = text.split('').map((char, i) => {
+                if (char === '\n') return '<br/>';
+                return `<span class="char" style="animation-delay: ${i * 35}ms">${char === ' ' ? '&nbsp;' : char}</span>`;
+            }).join('');
+
+            setTimeout(() => {
+                document.querySelectorAll('.char').forEach(el => {
+                    el.classList.add('char-reveal');
+                });
+            }, 100);
+        }
+
+        // Count-up on scroll for stat numbers (.stat-num and .impact-num)
+        function initCountUps() {
+            const nums = document.querySelectorAll('.stat-num, .impact-num');
+            if (!nums.length) return;
+
+            function format(n, suffix) {
+                const formatted = n.toLocaleString('en-US');
+                return suffix ? formatted + suffix : formatted;
+            }
+
+            function animate(el) {
+                const target = parseInt(el.dataset.target, 10);
+                const suffix = el.dataset.suffix || '';
+                if (Number.isNaN(target)) return;
+                if (reduceMotion) { el.textContent = format(target, suffix); return; }
+                const duration = target > 1000 ? 1800 : 1200;
+                const start = performance.now();
+                function step(now) {
+                    const t = Math.min(1, (now - start) / duration);
+                    const eased = 1 - Math.pow(1 - t, 3);
+                    el.textContent = format(Math.floor(target * eased), suffix);
+                    if (t < 1) requestAnimationFrame(step);
+                    else el.textContent = format(target, suffix);
+                }
+                requestAnimationFrame(step);
+            }
+
+            const obs = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        animate(entry.target);
+                        obs.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.35 });
+
+            nums.forEach((n) => obs.observe(n));
+        }
+
+        // Farm Stand tabs
+        function initFarmTabs() {
+            const tabs = document.querySelectorAll('.farm-tab');
+            const panels = document.querySelectorAll('.farm-panel');
+            if (!tabs.length) return;
+
+            tabs.forEach((tab) => {
+                tab.addEventListener('click', () => {
+                    const target = tab.dataset.tab;
+
+                    tabs.forEach((t) => {
+                        const active = t === tab;
+                        t.setAttribute('aria-selected', String(active));
+                        t.classList.toggle('text-primary', active);
+                        t.classList.toggle('border-primary', active);
+                        t.classList.toggle('font-bold', active);
+                        t.classList.toggle('text-secondary-fixed-dim', !active);
+                        t.classList.toggle('border-transparent', !active);
+                    });
+
+                    panels.forEach((p) => {
+                        const show = p.dataset.panel === target;
+                        if (show) {
+                            p.classList.remove('hidden');
+                            p.classList.add('grid');
+                            requestAnimationFrame(() => { p.style.opacity = '1'; });
+                        } else {
+                            p.style.opacity = '0';
+                            p.classList.add('hidden');
+                            p.classList.remove('grid');
+                        }
+                    });
+                });
+            });
+        }
+
+        // Contact form + toast
+        function initContactForm() {
+            const form = document.getElementById('contact-form');
+            const toast = document.getElementById('toast');
+            const errorEl = document.getElementById('cf-error');
+            if (!form || !toast) return;
+
+            function showToast() {
+                toast.classList.remove('translate-y-32', 'opacity-0');
+                toast.classList.add('translate-y-0', 'opacity-100');
+                setTimeout(() => {
+                    toast.classList.add('translate-y-32', 'opacity-0');
+                    toast.classList.remove('translate-y-0', 'opacity-100');
+                }, 3500);
+            }
+
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const data = new FormData(form);
+                const name = String(data.get('name') || '').trim();
+                const email = String(data.get('email') || '').trim();
+                const inquiry = String(data.get('inquiry') || '').trim();
+                const message = String(data.get('message') || '').trim();
+
+                if (!name || !email || !inquiry || !message) {
+                    errorEl.textContent = 'Please complete every field before sending.';
+                    errorEl.classList.remove('hidden');
+                    return;
+                }
+                if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                    errorEl.textContent = 'That email address does not look right.';
+                    errorEl.classList.remove('hidden');
+                    return;
+                }
+
+                errorEl.classList.add('hidden');
+                form.reset();
+                showToast();
+            });
+        }
+
+        // Testimonials carousel
+        function initTestimonials() {
+            const slides = document.querySelectorAll('.testimonial-slide');
+            const dots = document.querySelectorAll('.testimonial-dot');
+            if (!slides.length) return;
+            let current = 0;
+            let timer;
+
+            function show(idx) {
+                slides.forEach((s, i) => {
+                    const active = i === idx;
+                    s.classList.toggle('opacity-100', active);
+                    s.classList.toggle('opacity-0', !active);
+                    s.classList.toggle('pointer-events-none', !active);
+                });
+                dots.forEach((d, i) => {
+                    d.classList.toggle('bg-primary', i === idx);
+                    d.classList.toggle('bg-primary/20', i !== idx);
+                });
+                current = idx;
+            }
+
+            function next() { show((current + 1) % slides.length); }
+
+            dots.forEach((dot, i) => {
+                dot.addEventListener('click', () => {
+                    show(i);
+                    clearInterval(timer);
+                    timer = setInterval(next, 6000);
+                });
+            });
+
+            timer = setInterval(next, 6000);
+        }
+
+        // Scroll Reveal
+        const observerOptions = { threshold: 0.1 };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('active');
+            });
+        }, observerOptions);
+
+        window.addEventListener('resize', initButterflies);
+        document.addEventListener('DOMContentLoaded', () => {
+            initButterflies();
+            animateHeadline();
+            initTestimonials();
+            initFarmTabs();
+            initContactForm();
+            initCountUps();
+            initButterflyRelease();
+            const frames = document.querySelectorAll('.bh-frame');
+            if (frames.length) {
+                const fObs = new IntersectionObserver((entries) => {
+                    entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in-view'); fObs.unobserve(e.target); } });
+                }, { threshold: 0.3 });
+                frames.forEach((f) => fObs.observe(f));
+            }
+            document.querySelectorAll('.section-reveal').forEach(el => observer.observe(el));
+        });
+    </script>
+</body>
+</html>

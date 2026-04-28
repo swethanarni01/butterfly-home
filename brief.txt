@@ -1,0 +1,349 @@
+==============================================================
+SITE: SRINIVAS FARM — A Legacy of the Land
+==============================================================
+
+ROLE / CONTEXT
+--------------
+Role: You are Chief Creative Director for a meaningful, high-end 
+organic dairy farm website dedicated to the owner's father, Srinivas.
+
+Context: The farm is a tribute to heritage, hard work, and the bond 
+between man, land, and animal. It features high-quality buffalo and 
+cow dairy products, emphasizing the wisdom of the father who built it.
+
+The visual world: think warm golden-hour sunlight, rich earthy browns, 
+creamy whites, weathered wood textures, and symmetrical farm layouts. 
+It should feel like a "Farm-to-Table" boutique mixed with a family museum.
+
+Characters / Team:
+- The Founder (Father)     – The Heart of Srinivas Farm
+- The Herd                 – Our Buffaloes & Cows
+
+
+BUILD STACK
+-----------
+1. Stitch (layout generation)
+2. UI UX Pro Max (style / palette / typography selection)
+3. Firecrawl (reference scrape)
+4. Magic / 21st.dev (marketing blocks)
+5. Nano Banana 2 (hero + feature imagery)
+6. Brand skill (voice + messaging)
+7. Design skill (logo, icons, OG image)
+8. Design System skill (token architecture)
+9. UI Styling skill (shadcn/ui interactive components)
+
+
+PURPOSE
+-------
+A digital tribute and boutique storefront for Srinivas Farm. The site 
+serves to honor the legacy of the founder while providing a 
+high-end, organic experience for customers seeking the purest 
+buffalo and cow dairy products.
+
+
+==============================================================
+STEP 2 — BRAND VOICE (for `brand` skill)
+==============================================================
+
+Voice archetype: The Nurturing Traditionalist — Sincere, grounded, and 
+deeply connected to the soil. Speaks with the quiet pride of a 
+craftsman and the warmth of a family elder.
+
+Tone dimensions (scale 1–5):
+- Formal ↔ Casual:        3 (Respectful but warm)
+- Serious ↔ Playful:      2 (Grounded and authentic)
+- Reserved ↔ Expressive:  3 (Sincere)
+- Modern ↔ Timeless:      5 (Rooted in heritage)
+
+Voice rules:
+- Use earthy metaphors: "roots," "harvest," "nurture," "purity," "legacy."
+- Emphasize the connection between the land and the glass of milk.
+- Active voice. Short declarative sentences. Wonder over jargon.
+
+Words to use:   heritage, legacy, land, nurture, pure, wholesome, tradition,
+                family, honest, harvest, roots, authentic, natural, craft
+Words to avoid: industrial, mass-produced, synthetic, cutting-edge, synergy
+
+Messaging framework:
+- Tagline (≤7 words):        "Purity born from tradition."
+- Value prop (≤20 words):    "Honoring a father’s legacy through the finest organic dairy 
+                              and a deep respect for our land."
+- Key phrases (3–5):          "Our Family Story," "The Heart of the Land,"
+                              "Taste the Tradition"
+
+
+==============================================================
+STEP 3 — DESIGN SYSTEM (for `ui-ux-pro-max` + `design-system`)
+==============================================================
+
+Style keywords:   retro-futurism, warm, Art Deco, space age, 1960s NASA,
+                  Wes Anderson symmetry, analog warmth, blueprint precision,
+                  weathered wood, golden hour, botanical, heritage
+
+Preferred style direction: Authentic Farmhouse Elegance — strong symmetry, 
+natural textures, and a warm, inviting color palette.
+
+COLOR SYSTEM (semantic roles — let ui-ux-pro-max pick the exact 161-palette
+entries that match these roles):
+- Primary:         deep space navy (midnight blue, near-black with blue warmth)
+- Secondary:       warm amber / mission gold (vintage CRT glow, mission patches)
+- Tertiary:        terracotta / burnt orange (NASA mission-patch accent)
+- Accent:          silver chrome (spacecraft panels, instrument bezels)
+- Surface-base:    cream / blueprint white (aged technical documents)
+- Surface-raised:  warm ivory / parchment (worn mission dossiers)
+- Ink:             rich charcoal / near-black (NOT pure #000)
+- Success/info:    sage green (go-signal) / sky blue (telemetry readout)
+
+Contrast requirement: WCAG AA minimum on all text, AAA preferred for body
+copy on dark backgrounds.
+
+TYPOGRAPHY (let ui-ux-pro-max pick from the 57 pairings, matching this
+direction):
+- Display:   a confident geometric sans-serif with Art Deco proportions
+             (think Futura, Neue Haas Unica — NOT slab serif, NOT script)
+- Body:      clean humanist sans-serif, high legibility, 16–18px base
+- Accent:    monospace for "mission log," "telemetry," and data callout sections
+             only
+- Type scale: 1.250 (major third) modular scale
+- Line height: 1.55 body, 1.10 display
+
+SPACING & LAYOUT:
+- Spacing scale (4px base): 4, 8, 12, 16, 24, 32, 48, 64, 96, 128
+- Container max-width: 1280px
+- Grid: 12-col desktop, 8-col tablet, 4-col mobile
+- Section vertical rhythm: 96px desktop / 64px tablet / 48px mobile
+
+RADII:
+- sm 4px  |  md 8px  |  lg 12px  |  xl 20px  |  pill 9999px
+Default card radius: md (crisp, blueprint feel). Buttons: pill for primary
+CTAs, square-ish (sm radius) for secondary utility buttons.
+
+ELEVATION (Art Deco — precise drop shadows with amber warmth):
+- sm  0 2px 8px   rgba(amber / 0.12)
+- md  0 8px 24px  rgba(navy / 0.30)
+- lg  0 16px 48px rgba(navy / 0.40)
+Cards on dark backgrounds use an inset 1px amber border instead of shadow.
+
+MOTION LANGUAGE:
+- Easing:     cubic-bezier(0.25, 0.46, 0.45, 0.94) — mechanical precision,
+              no springy bounce (these are instruments, not toys)
+- Durations:  micro 120ms, standard 280ms, expressive 500ms, hero 800ms
+- Stagger:    100ms between siblings on scroll-reveal
+- Hover:      CTA lift 2px + amber glow shadow, 180ms
+- Hero:       title character-by-character reveal 800ms, 40ms per-char stagger,
+              fade+rise 20px
+- Mission log / data counters: count-up animation on scroll-enter
+- Starfield:  subtle parallax drift on hero (5px max) — slow, vast, celestial
+- prefers-reduced-motion: all transform/opacity transitions collapse to
+  opacity only at 150ms
+
+
+==============================================================
+STEP 4 — REFERENCE SCRAPE (for Firecrawl)
+==============================================================
+Reference URL: https://www.spacex.com/
+
+Borrow: full-bleed hero drama, dark-background section rhythm, data-forward
+copy blocks, bold typographic hierarchy, generous whitespace on dark surfaces.
+Avoid: any cold palette, corporate minimalism that loses warmth,
+or any motion that reads as tech-startup rather than vintage space age.
+
+
+==============================================================
+STEP 5 — SECTIONS & LAYOUT (for Stitch)
+==============================================================
+Section order and goal:
+
+1. Hero          — full-bleed golden-hour farm landscape; tagline + "Next Fresh Milk Delivery"
+                   countdown; 2 CTAs: "The Farm Story" / "View The Herd"
+2. About         — farm history, father's legacy, "Our Philosophy" card
+                   with key stats (year established, cows, buffalo, acres)
+3. Dairy Products — three product categories: Fresh Milk (Cow), Fresh Milk (Buffalo),
+                   Artisan Ghee; feature comparison table + CTA
+4. The Land      — sections on sustainable practices, organic farming, soil health,
+                   water conservation; photos of fields, crops, natural elements
+5. The Herd      — buffalo and cow profiles; 3-col card grid: Buffalo (names, breeds),
+                   Cows (names, breeds), Calves (photos); details + dietary icons
+6. Farm Stand    — products available, seasonal offerings, local delivery/pickup,
+                   booking CTA, photo of the farm stand
+7. Our Family    — father's portrait + family photos (Wes Anderson symmetrical grid),
+                   name + role + one-line "contribution"
+8. Gallery       — masonry grid of farm life photos, animals, products, landscapes
+9. Testimonials  — customer reviews carousel; 5-star, customer name + product
+10. Contact      — form (name, email, message, inquiry type), hours, address,
+                   social links, small map embed
+
+Hero 21st.dev prompt:
+  "A dramatic full-bleed hero section for an organic dairy farm: golden-hour farm
+  landscape with rolling hills and grazing animals, a bold centered headline in
+  classic serif typography, a warm countdown timer for 'Next Fresh Milk Delivery',
+  two CTA buttons, and subtle animated pollen/dust motes drifting slowly upward."
+
+
+==============================================================
+STEP 6 — IMAGERY (for Nano Banana 2, with fallback tiers)
+==============================================================
+Global art direction: Authentic Farmhouse Elegance / Wes Anderson-style symmetry.
+Warm golden-hour and earthy brown/cream palette throughout. Symmetrical or carefully
+composed frames. Rustic props: weathered wood, ceramic milk jugs, fresh produce,
+vintage farm tools. No modern tech logos or contemporary typography visible in any image.
+Consistent warm golden key light from above-center, soft natural fill from below/behind.
+Shallow depth of field on portraits; sharp landscape shots for farm scenes.
+
+Fallback art direction (if Nano Banana 2 is unavailable): the Authentic Farmhouse
+Elegance / Wes Anderson-style art direction STILL APPLIES. Flat or corporate vectors
+are not acceptable. Fallback illustrations must stay symmetrical, warm-lit,
+palette-bound, and rustic in character. Register may shift from
+photographic-real (Tier 1) to stylized illustration (Tiers 2–4) — acceptable
+if brand warmth and aesthetic coherence survive.
+
+Third-party SVG (Tier 4 — undraw.co / Storyset / Blush only): royalty-free
+license required. CC0 preferred; CC-BY with footer attribution acceptable.
+
+Aspect ratios:
+- Hero:        16:9 (2560×1440 export)
+- Feature:     4:3
+- Portrait:    3:4 (Crew member cards)
+- Gallery:     mixed (square + 4:5)
+- OG/social:   1200×630
+
+Per-image prompts:
+- Hero         — panoramic view of a golden-hour organic dairy farm with rolling
+                 hills, grazing buffalo and cows, a weathered wooden fence, and a
+                 traditional farmhouse in the background; warm sunlight, shallow DoF
+- About        — symmetrical Wes Anderson–style diorama of Srinivas Farm's interior:
+                 a rustic farm kitchen with ceramic milk jugs, a wooden table with
+                 fresh produce, and a framed photo of Srinivas; warm overhead light
+- Dairy Products — three elegant wooden crates on a rustic farm table, each labeled
+                 "Cow Milk," "Buffalo Milk," "Artisan Ghee," with fresh leaves and
+                 a small ceramic bowl of butter beside them; warm golden side lighting
+- The Land     — aerial view of a patchwork of organic fields, a winding dirt road,
+                 and a small stream; warm sunlight, symmetrical composition, vibrant greens
+- The Herd     — overhead flat-lay of fresh milk bottles, a block of artisan ghee,
+                 and a bowl of yogurt on a linen tablecloth; garnishes of fresh berries,
+                 mint, and honey; dramatic golden top-light, creamy white felt surface
+- Farm Stand   — wide symmetrical interior shot of a rustic farm stand: shelves with
+                 milk, cheese, and local produce, a friendly farmer behind a wooden
+                 counter, natural light streaming in from a large window
+- Family portraits — 8 individual portraits, consistent 3:4 framing, each
+                 family member in traditional farm attire with a subtle farm logo patch,
+                 warm golden key light from camera-left, soft natural fill from
+                 camera-right, blurred farm background, friendly expression,
+                 slight three-quarter turn
+
+Family-portrait consistency rules (all must share):
+- Framing:    3:4 portrait, chest-up, subject centered, 10% breathing room
+- Lighting:   golden key from camera-left at ~30°, soft natural fill
+              from camera-right, subtle rim light on shoulders.
+              Consistent background blur across all 8.
+- Palette:    Step 3 tokens; character accent color visible only in name
+              patch/scarf — never overrides global warm palette
+- Pose:       three-quarter view, direct eye-line, confident but warm
+- Attire:     traditional farm attire (e.g., linen shirt, denim overalls),
+              each with a subtle farm logo patch and name label in body typeface
+- Naming:     files as `family-<firstname-lastname>.png` (lowercase, hyphenated)
+
+
+==============================================================
+STEP 7 — BRAND ASSETS (for `design` skill)
+==============================================================
+
+- LOGO brief:
+- Concept:    a circular farm emblem / badge: a stylized cow or buffalo silhouette
+              inside a rustic wooden ring, with "SRINIVAS FARM" as a strong
+              traditional wordmark arcing across the top of the badge.
+- Wordmark:   "SRINIVAS FARM" in the display typeface from Step 3, letter-spaced
+              +0.05em, title-case.
+- Variants:   primary (full badge), wordmark-only, icon-only (planet/rocket),
+              monochrome light (for dark backgrounds), monochrome dark (for
+              light backgrounds), inverse.
+- Export:     SVG (primary), PNG @ 2x, favicon 32/48/180px.
+
+ICON SET (SVG, stroke 1.75px, precise geometric caps, Art Deco finish):
+- cow           (Hero / branding)
+- buffalo       (About / general branding)
+- milk-bottle   (Dairy Products)
+- wheat-stalk   (The Land)
+- farm-stand    (Farm Stand)
+- family-tree   (Our Family)
+- camera        (Gallery)
+- quote-bubble  (Testimonials)
+- phone-call    (Contact)
+- envelope-stamp (Contact form)
+
+OG / SOCIAL CARD (1200×630):
+- Logo badge top-left, tagline centered in display typeface, golden-hour farm
+  scene right-60%, wheat divider line.
+- Safe-area padding 64px.
+
+111
+==============================================================
+STEP 8 — INTERACTIVE COMPONENTS (for `ui-styling` / shadcn)
+==============================================================
+
+Required shadcn/ui primitives:
+- Accordion       (FAQ)
+- Dialog          (Product detail modal, Family member bio modal)
+- Form + Input    (Contact form with Zod validation)
+- Select          (Contact inquiry type; Product type select)
+- Carousel        (Testimonials, Gallery lightbox)
+- Card            (Products, Farm Stand items, Family members, Product categories)
+- Tabs            (Dairy Products categories: Cow Milk / Buffalo Milk / Artisan Ghee)
+- Tooltip         (Dietary icons, membership feature explanations)
+- Badge           (SOLD OUT event, MEMBERS ONLY, Vegan, New Arrival)
+- Toast           (Form submit confirmation, RSVP success)
+- Progress        (Countdown timer progress ring in Hero)
+- Separator       (Art Deco divider lines between sections)
+
+Interaction states required on every interactive element:
+default, hover, active, focus-visible, disabled, loading.
+
+Focus-visible: 2px amber-accent ring, 2px offset, md radius.
+Dark-mode: this site is primarily dark (deep navy surface) — light-mode
+is a secondary toggle; dark is the canonical design direction.
+
+
+==============================================================
+STEP 9 — ASSEMBLE & ANIMATE (final index.html)
+==============================================================
+
+RESPONSIVE BREAKPOINTS: 640 (sm), 1024 (lg), 1280 (xl). Mobile-first.
+
+PERFORMANCE BUDGET:
+- LCP  < 2.5s
+- CLS  < 0.05
+- Lazy-load below-the-fold imagery (loading="lazy", decoding="async").
+- Use srcset for hero and feature images.
+- Background animation: canvas-based, requestAnimationFrame, <1% CPU idle (pollen/dust motes).
+
+SEO / META:
+- <title>SRINIVAS FARM — A Legacy of the Land</title>
+- meta description: value prop from Step 2 (≤155 chars)
+- OG tags: og:title, og:description, og:image (Step 7 card), og:type=website
+- Twitter card: summary_large_image
+- JSON-LD: LocalBusiness / BarOrPub schema with address + hours
+
+ACCESSIBILITY:
+- Landmark regions: header, nav, main, footer, section[aria-label]
+- Skip-to-content link
+- Alt text on every image (descriptive, mission-themed)
+- prefers-reduced-motion honored (see Step 3 motion rules)
+- Tap targets ≥ 44×44px on mobile
+- Form labels always visible (no placeholder-only labels)
+- Countdown timer: aria-live="polite" region for screen readers
+
+ANIMATION ON ASSEMBLY:
+- Hero:              word-by-word title reveal 1000ms, 80ms stagger,
+                     fade+rise 30px; pollen/dust mote canvas drifts upward at 0.2px/frame
+- Countdown:         live "Next Fresh Milk Delivery" counter updating every second,
+                     wheat digit flip animation 250ms
+- Section reveals:   IntersectionObserver, threshold 0.15, once:true,
+- 80ms stagger between siblings
+- CTA hover:         subtle scale 1.02 + soft shadow, 200ms
+- Card hover:        lift 3px, wheat border illuminate, image scale 1.02, 250ms
+- Product cards:     hover tilts 0.5° with perspective, highlights category color
+- Product tabs:      crossfade 250ms
+- Accordion:         height transition 260ms + icon rotate 180°
+- Carousel:          slide 450ms with step easing from Step 3
+- Mission stats:     count-up from 0 on scroll-enter, 1200ms duration, easeOut
+- Crew portraits:    reveal with 120ms stagger, subtle scale from 0.96→1
