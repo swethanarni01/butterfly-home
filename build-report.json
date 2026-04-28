@@ -1,7 +1,15 @@
 {
   "pipeline": "/animated-website",
-  "generatedAt": "2026-04-28T00:00:00Z",
+  "generatedAt": "2026-04-28T22:50:00Z",
   "briefSource": "brief.txt",
+  "mcp": {
+    "stitch": "fired",
+    "firecrawl": "fired",
+    "magic": "skipped",
+    "firecrawlReferenceFile": "firecrawl-reference.json",
+    "firecrawlSource": "https://www.spacex.com/",
+    "firecrawlFormat": "branding"
+  },
   "thematicPivot": {
     "from": "Boutique organic dairy storefront (paid product brand)",
     "to": "The Butterfly House at Srinivas Farm — a small community farm and sanctuary for abandoned children and elders",

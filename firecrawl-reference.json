@@ -1,0 +1,50 @@
+{
+  "source": "https://www.spacex.com/",
+  "scrapedAt": "2026-04-28T22:50:00Z",
+  "tool": "firecrawl-mcp scrape (branding format)",
+  "purpose": "Reference scrape per brief Step 4 — borrow full-bleed hero drama, dark-section rhythm, bold typographic hierarchy, generous whitespace on dark surfaces",
+  "branding": {
+    "colorScheme": "dark",
+    "colors": {
+      "primary": "#0000EE",
+      "accent": "#002746",
+      "background": "#000000",
+      "textPrimary": "#000000",
+      "link": "#002746"
+    },
+    "fonts": [
+      { "family": "D-DIN", "role": "body" },
+      { "family": "D-DIN-Bold", "role": "heading" }
+    ],
+    "typography": {
+      "fontSizes": { "h1": "16px", "h2": "60px", "body": "16px" }
+    },
+    "spacing": { "baseUnit": 4, "borderRadius": "0px" },
+    "components": {
+      "buttonPrimary": {
+        "background": "#000000",
+        "textColor": "#F0F0FA",
+        "borderColor": "#545458",
+        "borderRadius": "4px"
+      }
+    },
+    "personality": {
+      "tone": "professional",
+      "energy": "high",
+      "targetAudience": "technology enthusiasts and commercial clients"
+    }
+  },
+  "appliedToOurDesign": {
+    "borrowed": [
+      "Generous vertical whitespace on dark / muted surfaces (e.g. Community Impact section)",
+      "Bold typographic hierarchy with large display headlines vs small uppercase eyebrows",
+      "Full-bleed hero with single dramatic statement",
+      "Single-purpose CTA buttons with restrained styling"
+    ],
+    "rejected": [
+      "SpaceX cold-blue + black palette — replaced with warm forest-green + honey-amber to match the sanctuary's tone (per brief: 'Avoid: any cold palette, corporate minimalism that loses warmth')",
+      "Hard-edged 0px border radius — replaced with rounded 16-24px radii for warmth",
+      "Tech-startup energy — replaced with quiet, contemplative motion (Ken Burns + butterfly bursts)"
+    ]
+  }
+}
